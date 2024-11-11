@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000107c0000e42600009654ffff5a6b00006a6600007281000074810000768100006e810000c87300004c6c00003cc50000106700005885000028ef00007085000086650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
