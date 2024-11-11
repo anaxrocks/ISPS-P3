@@ -71,3 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.DS_Store
+/ISPS-P3/Library
+/ISPS-P3/Logs
+ISPS-P3/Library/Artifacts/75/75d66b4fd5fb67965c92b632efb221ee
