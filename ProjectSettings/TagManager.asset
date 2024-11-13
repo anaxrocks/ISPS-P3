@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Bin1
+  - Bin2
+  - Bin3
+  - Bin4
+  - Package1
+  - Package2
+  - Package3
+  - Package4
+  - Discard
+  - Rock
   layers:
   - Default
   - TransparentFX
