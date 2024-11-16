@@ -17,11 +17,17 @@ public class Player : MonoBehaviour
     public int p2;
     public int p3;
     public int p4;
+    public float timetoReset; //time to reset bin if player mis-sorted
+    private float[] binCountdown = new float[4];
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        for (int i = 0; i < 4; i++) 
+        {
+            binCountdown[i] = 0.0f;
+        }
     }
 
     // Update is called once per frame
@@ -42,63 +48,94 @@ public class Player : MonoBehaviour
         
         transform.position = new Vector3(mouseX, transform.position.y, transform.position.z);
 
+        //Decrease bin countdown if above zero
+        for (int i = 0; i < 4; i++) 
+        {
+            if (binCountdown[i] > 0) { binCountdown[i] -= Time.deltaTime; }
+            
+        }
         if (drop1)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0)
+            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
+                && binCountdown[0] <=0)
             {
                 if (packageStack.Peek() == 1)
                 {
-                    packageStack.Pop();
                     p1 += 1;
                     print("package 1 added to bin");
                 }
+                else 
+                {
+                    print("mis-sort!");
+                    binCountdown[0] = timetoReset;
+                }
+                packageStack.Pop();
+
             }
         }
 
         if (drop2)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0)
+            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
+                && binCountdown[1] <=0)
             {
                 if (packageStack.Peek() == 2)
                 {
-                    packageStack.Pop();
                     p2 += 1;
                     print("package 2 added to bin");
                 }
+                else 
+                {
+                    print("mis-sort!");
+                    binCountdown[1] = timetoReset;
+                }
+                packageStack.Pop();
             }
         }
 
         if (drop3)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0)
+            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
+                && binCountdown[2] <=0)
             {
                 if (packageStack.Peek() == 3)
                 {
-                    packageStack.Pop();
                     p3 += 1;
                     print("package 3 added to bin");
                 }
+                else 
+                {
+                    print("mis-sort!");
+                    binCountdown[2] = timetoReset;
+                }   
+                packageStack.Pop();
             }
         }
 
         if (drop4)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0)
+            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
+                && binCountdown[3] <=0)
             {
                 if (packageStack.Peek() == 4)
                 {
-                    packageStack.Pop();
                     p4 += 1;
                     print("package 4 added to bin");
                 }
+                else 
+                {
+                    print("mis-sort!");
+                    binCountdown[3] = timetoReset;
+                }
+                packageStack.Pop();
             }
         }
-
+        //Can discard any package or rock
         if (discard)
         {
             if (Input.GetMouseButtonDown(0) && packageStack.Count > 0)
             {
-                if (packageStack.Peek() == 0)
+                if (packageStack.Count != 0)
                 {
                     packageStack.Pop();
                     print("discarded package");

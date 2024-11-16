@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
         {
             spawnCountdown = timetoSpawn;
             int randomPackage = Random.Range(0, packages.Length);
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-9,9), 8, 0);
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-9,9), Random.Range(4,8), 0);
 
             Instantiate(packages[randomPackage], randomSpawnPosition, Quaternion.identity);
         }
