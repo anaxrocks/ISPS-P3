@@ -7,6 +7,6 @@ public class GameOverScreen : MonoBehaviour
     {
         Debug.Log("Restarting to Title Screen...");
         Time.timeScale = 1f; // Reset time scale in case the game was paused
-        SceneManager.LoadScene("TitleScreen"); // Replace with the name of your Title Screen scene
+        SceneManager.LoadScene("Upgrades"); // Replace with the name of your Title Screen scene
     }
 }

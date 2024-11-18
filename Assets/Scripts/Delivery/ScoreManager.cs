@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     // Game stats
     private int score = 0; // Player's score
     private int packagesDelivered = 0; // Number of packages delivered
-    public int packagesLeft = 10; // Total packages to be delivered
+    public int packagesLeft; // Total packages to be delivered
     private int hp = 3; // Player health points
 
     void Awake()
@@ -37,7 +37,7 @@ public class ScoreManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject); // Optional: Persist across scenes
+        packagesLeft = Currency.pSorted + 5;
     }
 
     void Start()
@@ -120,6 +120,9 @@ public class ScoreManager : MonoBehaviour
             }
         }
 
+        Currency.pDelivered = score;
+        print(Currency.pDelivered);
+       
         // Pause the game (optional)
         Time.timeScale = 0f;
     }

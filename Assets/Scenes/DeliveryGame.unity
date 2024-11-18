@@ -349,7 +349,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Packages Left: 10'
+  m_Text: 'Packages Left:
+
+'
 --- !u!222 &238307255
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -972,7 +974,7 @@ MonoBehaviour:
   hpText: {fileID: 787962386}
   gameOverCanvas: {fileID: 877868112}
   gameOverScoreText: {fileID: 795824552}
-  packagesLeft: 10
+  packagesLeft: 0
 --- !u!4 &927560997
 Transform:
   m_ObjectHideFlags: 0
