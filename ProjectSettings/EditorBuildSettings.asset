@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Upgrades.unity
     guid: fbb9c00fcafe54ca2a00e322f6b257d8
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: d5b4c4ce26a7a4a109c6eb840f985376
+  - enabled: 1
+    path: Assets/Scenes/DeliveryGame.unity
+    guid: 21bc4ba01d4864c0c88da9897057b31b
   m_configObjects: {}
