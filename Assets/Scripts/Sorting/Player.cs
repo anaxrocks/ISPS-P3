@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     public Sprite[] packageSprites; //list of sprites, must be same order as packages
     public Transform[] bins; //list of bins. Bins are 1-indexed
 
+    //for player movement
+    bool facingRight = true;
+
     public bool drop1;
     public bool drop2;
     public bool drop3;
@@ -58,6 +61,16 @@ public class Player : MonoBehaviour
         if (mouseX > 9.5f) {
             mouseX = 9.5f;
         }
+        //character flips according to mouse movement
+        if (mouseX > transform.position.x && !facingRight)
+        {
+            flip();
+        }
+        else if (mouseX < transform.position.x && facingRight)
+        {
+            flip();
+        }
+
         
         transform.position = new Vector3(mouseX, transform.position.y, transform.position.z);
 
@@ -199,7 +212,12 @@ public class Player : MonoBehaviour
     {
         bins[i].GetComponent<SpriteRenderer>().sprite = packageSprites[i + 1];
     }
-
+    /* Flips character */
+    void flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
     void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.tag == "Package1") {
