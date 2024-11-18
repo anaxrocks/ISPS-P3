@@ -6,7 +6,11 @@ public class Player : MonoBehaviour
 {
     public Camera cam;
     private float mouseX;
+
     private Stack<int> packageStack = new Stack<int>();
+    public Transform[] stackSlots; //visual stack above player
+    public Sprite[] packageSprites; //list of sprites, must be same order as packages
+
     public bool drop1;
     public bool drop2;
     public bool drop3;
@@ -17,6 +21,7 @@ public class Player : MonoBehaviour
     public int p2;
     public int p3;
     public int p4;
+
     public float timetoReset; //time to reset bin if player mis-sorted
     private float[] binCountdown = new float[4];
 
@@ -69,7 +74,8 @@ public class Player : MonoBehaviour
                     print("mis-sort!");
                     binCountdown[0] = timetoReset;
                 }
-                packageStack.Pop();
+                PopFromStack();
+                //packageStack.Pop();
 
             }
         }
@@ -89,7 +95,8 @@ public class Player : MonoBehaviour
                     print("mis-sort!");
                     binCountdown[1] = timetoReset;
                 }
-                packageStack.Pop();
+                PopFromStack();
+                //packageStack.Pop();
             }
         }
 
@@ -108,7 +115,8 @@ public class Player : MonoBehaviour
                     print("mis-sort!");
                     binCountdown[2] = timetoReset;
                 }   
-                packageStack.Pop();
+                PopFromStack();
+                //packageStack.Pop();;
             }
         }
 
@@ -127,7 +135,8 @@ public class Player : MonoBehaviour
                     print("mis-sort!");
                     binCountdown[3] = timetoReset;
                 }
-                packageStack.Pop();
+                PopFromStack();
+                //packageStack.Pop();
             }
         }
         //Can discard any package or rock
@@ -137,12 +146,29 @@ public class Player : MonoBehaviour
             {
                 if (packageStack.Count != 0)
                 {
-                    packageStack.Pop();
+                    PopFromStack();
+                    //packageStack.Pop();
                     print("discarded package");
                 }
             }
         }
     }
+    /* Use this to add to stack and also take care of the visuals! Does not
+        check for stack size so careful~
+    */
+    private void AddToStack(int i)
+    {
+        int size = packageStack.Count;
+        stackSlots[size].GetComponent<SpriteRenderer>().sprite = packageSprites[i];
+        packageStack.Push(i);
+    }
+    private void PopFromStack()
+    {
+        int size = packageStack.Count;
+        stackSlots[size - 1].GetComponent<SpriteRenderer>().sprite = null;
+        packageStack.Pop();
+    }
+
 
     void OnTriggerEnter2D (Collider2D other)
     {
@@ -152,7 +178,8 @@ public class Player : MonoBehaviour
                 packageStack.Peek() != 0) ||
                 packageStack.Count == 0)
             {
-                packageStack.Push(1);
+                AddToStack(1);
+                //packageStack.Push(1);
                 print(packageStack.Peek());
             }
         }
@@ -164,7 +191,8 @@ public class Player : MonoBehaviour
                 packageStack.Peek() != 0) ||
                 packageStack.Count == 0)
             {
-                packageStack.Push(2);
+                AddToStack(2);
+                //packageStack.Push(2);
                 print(packageStack.Peek());
             }
         }
@@ -176,7 +204,8 @@ public class Player : MonoBehaviour
                 packageStack.Peek() != 0) ||
                 packageStack.Count == 0)
             {
-                packageStack.Push(3);
+                AddToStack(3);
+                //packageStack.Push(3);
                 print(packageStack.Peek());
             }
         }
@@ -188,7 +217,8 @@ public class Player : MonoBehaviour
                 packageStack.Peek() != 0)||
                 packageStack.Count == 0)
             {
-                packageStack.Push(4);
+                AddToStack(4);
+                //packageStack.Push(4);
                 print(packageStack.Peek());
             }
         }
@@ -199,7 +229,8 @@ public class Player : MonoBehaviour
                 packageStack.Count > 0 ||
                 packageStack.Count == 0)
             {
-                packageStack.Push(0);
+                AddToStack(0);
+                //packageStack.Push(0);
                 print(packageStack.Peek());
             }
         }
