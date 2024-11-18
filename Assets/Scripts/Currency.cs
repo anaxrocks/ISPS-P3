@@ -6,7 +6,12 @@ using TMPro;
 
 public class Currency : MonoBehaviour
 {
-    public static int money = 0;
+    public static int money;
+    public static int repHome;
+    public static int rep1;
+    public static int rep2;
+    public static int rep3;
+    public static int rep4;
     public TextMeshProUGUI moneyText;
 
     // Start is called before the first frame update
@@ -15,9 +20,15 @@ public class Currency : MonoBehaviour
         UpdateMoneyText();
     }
 
-    public void AddMoney()
+    public void AddMoney(int amount)
     {
-        money += 10;
+        money += amount;
+        UpdateMoneyText();
+    }
+
+    public void RemoveMoney(int amount)
+    {
+        money -= amount;
         UpdateMoneyText();
     }
 
