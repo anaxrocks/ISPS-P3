@@ -16,7 +16,7 @@ public class Currency : MonoBehaviour
 
     // minigame variables
     public static int pGoal; // num packages needed
-    public static int pSorted = 1; // sorting minigame
+    public static int pSorted; // sorting minigame
     public static int pMiss; // mis-sorted packages
     public static int pDelivered; // delivery minigame
 
