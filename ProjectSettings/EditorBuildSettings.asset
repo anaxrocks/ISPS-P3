@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeliveryGame.unity
     guid: 21bc4ba01d4864c0c88da9897057b31b
+  - enabled: 1
+    path: Assets/Scenes/Summary.unity
+    guid: b076818d9b2d84e74ac639e74c99ad24
   m_configObjects: {}
