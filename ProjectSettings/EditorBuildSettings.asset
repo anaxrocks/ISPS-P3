@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Hub.unity
     guid: daa420ffddf2a4661b84817bd61d69ef
   - enabled: 1
+    path: Assets/Scenes/SortingPackagesMain.unity
+    guid: 58736f8201a014f6fb873054d53eee00
+  - enabled: 1
     path: Assets/Scenes/Upgrades.unity
     guid: fbb9c00fcafe54ca2a00e322f6b257d8
   m_configObjects: {}

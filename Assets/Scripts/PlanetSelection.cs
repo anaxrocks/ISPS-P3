@@ -1,21 +1,27 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class PlanetSelection : MonoBehaviour
+public class ButtonSelectionManager : MonoBehaviour
 {
-    public List<Button> buttons; // List of buttons in the scene
+    public List<Button> buttons; // List of selectable buttons
+    public Button startButton; // Reference to the Start button
     private Button currentSelectedButton; // Tracks the currently selected button
 
-    // Update is called once per frame
+    void Start()
+    {
+        // Disable the Start button at the beginning
+        startButton.interactable = false;
+    }
+
     void Update()
     {
         // Check the currently selected object in the EventSystem
         GameObject selectedObject = EventSystem.current.currentSelectedGameObject;
 
-        // If it's a button in our list
+        // Ensure the selected object is a button and part of our valid list
         if (selectedObject != null && buttons.Contains(selectedObject.GetComponent<Button>()))
         {
             Button selectedButton = selectedObject.GetComponent<Button>();
@@ -23,23 +29,33 @@ public class PlanetSelection : MonoBehaviour
             // Check if the selection has changed
             if (currentSelectedButton != selectedButton)
             {
+                // Set value to the new selected button
                 SetButtonValue(selectedButton);
 
+                // Reset the previously selected button (if any)
                 if (currentSelectedButton != null)
                 {
                     ResetButtonValue(currentSelectedButton);
                 }
+
+                // Update the current selected button
                 currentSelectedButton = selectedButton;
-                print(currentSelectedButton);
+
+                // Enable the Start button
+                startButton.interactable = true;
             }
-            print(currentSelectedButton);
         }
-        else if (currentSelectedButton != null) // If no button is selected
+        else if (selectedObject != startButton.gameObject) // Exclude Start button from the check
         {
-            // Reset the value of the previously selected button
-            ResetButtonValue(currentSelectedButton);
-            currentSelectedButton = null;
-            print(currentSelectedButton);
+            if (currentSelectedButton != null)
+            {
+                // Reset the value of the previously selected button
+                ResetButtonValue(currentSelectedButton);
+                currentSelectedButton = null;
+
+                // Disable the Start button
+                startButton.interactable = false;
+            }
         }
     }
 
@@ -61,5 +77,10 @@ public class PlanetSelection : MonoBehaviour
         {
             buttonText.text = "Not Selected";
         }
+    }
+
+    public void StartDay()
+    {
+        SceneManager.LoadScene("SortingPackagesMain");
     }
 }
