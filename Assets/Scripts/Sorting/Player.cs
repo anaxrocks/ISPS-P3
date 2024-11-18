@@ -9,7 +9,15 @@ public class Player : MonoBehaviour
 
     private Stack<int> packageStack = new Stack<int>();
     public Transform[] stackSlots; //visual stack above player
+    /*  0 rock
+        1 garden package
+        2 ocean package
+        3 cowboy package
+        4 cat package
+        5 closed package
+    */
     public Sprite[] packageSprites; //list of sprites, must be same order as packages
+    public Transform[] bins; //list of bins. Bins are 1-indexed
 
     public bool drop1;
     public bool drop2;
@@ -53,11 +61,16 @@ public class Player : MonoBehaviour
         
         transform.position = new Vector3(mouseX, transform.position.y, transform.position.z);
 
-        //Decrease bin countdown if above zero
+        //Decrease bin countdown if above zero, or open bins (visually)
         for (int i = 0; i < 4; i++) 
         {
-            if (binCountdown[i] > 0) { binCountdown[i] -= Time.deltaTime; }
-            
+            if (binCountdown[i] > 0) 
+            { 
+                binCountdown[i] -= Time.deltaTime; 
+            }
+            else {
+                openBin(i);
+            }
         }
         if (drop1)
         {
@@ -72,7 +85,7 @@ public class Player : MonoBehaviour
                 else 
                 {
                     print("mis-sort!");
-                    binCountdown[0] = timetoReset;
+                    closeBin(1);
                 }
                 PopFromStack();
                 //packageStack.Pop();
@@ -93,7 +106,7 @@ public class Player : MonoBehaviour
                 else 
                 {
                     print("mis-sort!");
-                    binCountdown[1] = timetoReset;
+                    closeBin(2);
                 }
                 PopFromStack();
                 //packageStack.Pop();
@@ -113,7 +126,7 @@ public class Player : MonoBehaviour
                 else 
                 {
                     print("mis-sort!");
-                    binCountdown[2] = timetoReset;
+                    closeBin(3);
                 }   
                 PopFromStack();
                 //packageStack.Pop();;
@@ -133,7 +146,7 @@ public class Player : MonoBehaviour
                 else 
                 {
                     print("mis-sort!");
-                    binCountdown[3] = timetoReset;
+                    closeBin(4);
                 }
                 PopFromStack();
                 //packageStack.Pop();
@@ -153,6 +166,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+
     /* Use this to add to stack and also take care of the visuals! Does not
         check for stack size so careful~
     */
@@ -162,13 +176,29 @@ public class Player : MonoBehaviour
         stackSlots[size].GetComponent<SpriteRenderer>().sprite = packageSprites[i];
         packageStack.Push(i);
     }
+
+    /* Use this to pop from stack and also take care of the visuals! Does not
+        check for stack size so careful~
+    */
     private void PopFromStack()
     {
         int size = packageStack.Count;
         stackSlots[size - 1].GetComponent<SpriteRenderer>().sprite = null;
         packageStack.Pop();
     }
-
+    /* Closes the bin for a missort. Bins are 1-indexed. */
+    private void closeBin(int i)
+    {
+        //5 is the index for a closed package
+        bins[i-1].GetComponent<SpriteRenderer>().sprite = packageSprites[5];
+        binCountdown[i-1] = timetoReset;
+    }
+    
+    /* Call this to open the bin again (visually). 0-indexed. */
+    private void openBin(int i)
+    {
+        bins[i].GetComponent<SpriteRenderer>().sprite = packageSprites[i + 1];
+    }
 
     void OnTriggerEnter2D (Collider2D other)
     {
