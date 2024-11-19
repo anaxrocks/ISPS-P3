@@ -178,6 +178,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        Currency.pSorted = p1 + p2 + p3 + p4;
     }
 
     /* Use this to add to stack and also take care of the visuals! Does not
@@ -202,6 +204,7 @@ public class Player : MonoBehaviour
     /* Closes the bin for a missort. Bins are 1-indexed. */
     private void closeBin(int i)
     {
+        Currency.pMiss += 1;
         //5 is the index for a closed package
         bins[i-1].GetComponent<SpriteRenderer>().sprite = packageSprites[5];
         binCountdown[i-1] = timetoReset;

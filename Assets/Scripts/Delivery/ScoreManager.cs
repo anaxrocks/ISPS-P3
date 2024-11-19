@@ -37,7 +37,7 @@ public class ScoreManager : MonoBehaviour
             return;
         }
 
-        packagesLeft = Currency.pSorted + 5;
+        packagesLeft = Currency.pSorted;
     }
 
     void Start()
