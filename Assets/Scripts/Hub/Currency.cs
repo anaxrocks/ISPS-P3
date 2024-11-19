@@ -46,7 +46,7 @@ public class Currency : MonoBehaviour
     }
 
     // Updates the money display in the UI
-    private void UpdateMoneyText()
+    public void UpdateMoneyText()
     {
         moneyText.text = "$" + money.ToString();
     }

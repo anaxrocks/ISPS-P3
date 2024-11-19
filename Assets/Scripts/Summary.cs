@@ -19,6 +19,8 @@ public class Summary : MonoBehaviour
     void Start()
     {
         totalprofit = Currency.pDelivered;
+        Currency.money += totalprofit;
+
         // Update all the UI elements
         if (moneyMade != null)
             moneyMade.text = "$$ made: " + Currency.pDelivered.ToString();
