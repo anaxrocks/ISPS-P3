@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     */
     public Sprite[] packageSprites; //list of sprites, must be same order as packages
     public Transform[] bins; //list of bins. Bins are 1-indexed
+    public TextMeshProUGUI scoreText; //PSorted
 
     //for player movement
     bool facingRight = true;
@@ -71,7 +73,7 @@ public class Player : MonoBehaviour
             flip();
         }
 
-        
+        scoreText.text = Currency.pSorted.ToString();
         transform.position = new Vector3(mouseX, transform.position.y, transform.position.z);
 
         //Decrease bin countdown if above zero, or open bins (visually)
