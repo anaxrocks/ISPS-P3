@@ -17,7 +17,7 @@ public class Upgrades : MonoBehaviour
     // Sorting Upgrades
     public static int handLimit = 1;
     public static int handLimitCounter;
-    public static int lessGarbage;
+    public static int lessGarbage = 5;
     public static int lessGarbageCounter;
 
     // Delivery Upgrades
@@ -173,11 +173,12 @@ public class Upgrades : MonoBehaviour
 
     public void BuyLessGarbageUpgrade()
     {
-        if (Currency.money >= lessGarbageCost && lessGarbageCounter < upgradeSprites.Length - 1)
+        if (Currency.money >= lessGarbageCost && lessGarbageCounter < upgradeSprites.Length - 1 && lessGarbage > 0)
         {
             Currency.money -= lessGarbageCost;
             lessGarbageCost *= 2;
             lessGarbageCounter++;
+            lessGarbage--;
             // Change lessGarbage value
             UpdateUI();
         }

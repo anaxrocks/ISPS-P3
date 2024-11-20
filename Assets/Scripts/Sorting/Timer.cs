@@ -6,6 +6,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+    public Player player;
     public float gameTimer;
     public bool timerRunning = false;
 
@@ -30,7 +31,8 @@ public class Timer : MonoBehaviour
             } else {
                 gameTimer = 0;
                 timerRunning = false;
-                SceneManager.LoadScene("DeliveryGame");
+                player.showSummary();
+                // SceneManager.LoadScene("DeliveryGame");
             }
         }
     }

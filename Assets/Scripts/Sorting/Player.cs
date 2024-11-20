@@ -20,9 +20,12 @@ public class Player : MonoBehaviour
     public Sprite[] packageSprites; //list of sprites, must be same order as packages
     public Transform[] bins; //list of bins. Bins are 1-indexed
     public TextMeshProUGUI scoreText; //PSorted
+    public TextMeshProUGUI summaryText;
 
     //for player movement
     bool facingRight = true;
+
+    public GameObject summaryCanvas; //Summary once timer is over. 
 
     public bool drop1;
     public bool drop2;
@@ -46,6 +49,7 @@ public class Player : MonoBehaviour
         {
             binCountdown[i] = 0.0f;
         }
+        maxStack = Upgrades.handLimit;
     }
 
     // Update is called once per frame
@@ -73,7 +77,7 @@ public class Player : MonoBehaviour
             flip();
         }
 
-        scoreText.text = Currency.pSorted.ToString();
+        scoreText.text = "Score: " + Currency.pSorted.ToString();
         transform.position = new Vector3(mouseX, transform.position.y, transform.position.z);
 
         //Decrease bin countdown if above zero, or open bins (visually)
@@ -223,6 +227,15 @@ public class Player : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
+    /* Shows how many packages were sorted */
+    public void showSummary()
+    {
+        summaryCanvas.SetActive(true);
+        Time.timeScale = 0f; //pause game
+        summaryText.text = "Score: " + Currency.pSorted.ToString();
+    }
+
+
     void OnTriggerEnter2D (Collider2D other)
     {
         if (other.gameObject.tag == "Package1") {
