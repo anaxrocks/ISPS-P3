@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6268233242727716153}
   - component: {fileID: 6458115317895290232}
   - component: {fileID: 9118966800542792776}
+  - component: {fileID: -731771298213451646}
   m_Layer: 0
   m_Name: PackageDelivery2
   m_TagString: Untagged
@@ -171,7 +172,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efc55d833b8e40cb8c86c1bb980d2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  packagePrefab: {fileID: 0}
   packages: []
+  randomPackage: 0
   spawnOffset: 1
   shootSpeed: 5
+  timeForShootReset: 0
+  shootCountdown: 0
+--- !u!114 &-731771298213451646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464492629486970140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca948b39e09048a79f98a01c69509e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
