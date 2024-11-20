@@ -43,8 +43,8 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        UpdateUI(); // Initialize UI with default values
         hp = Upgrades.moreHealth;
+        UpdateUI(); // Initialize UI with default values
         activePackages = 0;
     }
 
