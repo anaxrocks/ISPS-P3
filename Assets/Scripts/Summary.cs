@@ -13,17 +13,19 @@ public class Summary : MonoBehaviour
     public TextMeshProUGUI laborCosts; 
     public TextMeshProUGUI fuelCosts; 
     public TextMeshProUGUI profit;
+    private int earnings;
     private int totalprofit;
 
     // Start is called before the first frame update
     void Start()
     {
-        totalprofit = Currency.pDelivered;
+        earnings = Currency.pDelivered * PlanetSelection.shippingCharge;
+        totalprofit = (Currency.pDelivered * PlanetSelection.shippingCharge) - PlanetSelection.fuelCost;
         Currency.money += totalprofit;
 
         // Update all the UI elements
         if (moneyMade != null)
-            moneyMade.text = "$$ made: " + Currency.pDelivered.ToString();
+            moneyMade.text = "Money Earned: $" + Currency.pDelivered.ToString();
 
         if (packagesSorted != null)
             packagesSorted.text = "Packages Sorted: " + Currency.pSorted.ToString();
@@ -32,13 +34,13 @@ public class Summary : MonoBehaviour
             packagesDelivered.text = "Packages Delivered: " + Currency.pDelivered.ToString();
 
         if (laborCosts != null)
-            laborCosts.text = "Labor costs: ";
+            laborCosts.text = "Labor costs: $0";
 
         if (fuelCosts != null)
-            fuelCosts.text = "Fuel costs: ";
+            fuelCosts.text = "Fuel costs: $" + PlanetSelection.fuelCost.ToString();
 
         if (profit != null)
-            profit.text = "Profit: " + totalprofit.ToString();
+            profit.text = "Profit: $" + totalprofit.ToString();
     }
 
     public void GoToUpgrades()

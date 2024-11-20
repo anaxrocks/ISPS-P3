@@ -35,7 +35,7 @@ public class Upgrades : MonoBehaviour
     public static int morePackagesDeliveredCounter;
 
     // Research upgrade
-    public static int research;
+    public static int research; // might not need this, use researchCounter instead?
     public static int researchCounter;
     public static int researchTries;
     public static int researchPieces;

@@ -3,17 +3,40 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-public class ButtonSelectionManager : MonoBehaviour
+public class PlanetSelection : MonoBehaviour
 {
     public List<Button> buttons; // List of selectable buttons
     public Button startButton; // Reference to the Start button
     private Button currentSelectedButton; // Tracks the currently selected button
 
+    // Planet info when clicked
+    public TextMeshProUGUI packageQuotaText;
+    public TextMeshProUGUI fuelCostText;
+    public TextMeshProUGUI shippingChargeText;
+    public TextMeshProUGUI estimatedEarningsText;
+
+    public static int selectedPlanet;
+    public static int packageQuota;
+    public static int fuelCost;
+    public static int shippingCharge;
+    private int estimatedEarnings;
+
+
     void Start()
     {
         // Disable the Start button at the beginning
         startButton.interactable = false;
+
+        for (int i = Upgrades.researchCounter + 1; i < 5; i++)
+        {
+            buttons[i].gameObject.SetActive(false);
+        }
+        for (int j = 0; j < Upgrades.researchCounter + 1; j++)
+        {
+            buttons[j].gameObject.SetActive(true);
+        }
     }
 
     void Update()
@@ -53,6 +76,11 @@ public class ButtonSelectionManager : MonoBehaviour
                 ResetButtonValue(currentSelectedButton);
                 currentSelectedButton = null;
 
+                packageQuotaText.text = "";
+                fuelCostText.text = "";
+                shippingChargeText.text = "";
+                estimatedEarningsText.text = "";
+
                 // Disable the Start button
                 startButton.interactable = false;
             }
@@ -77,6 +105,64 @@ public class ButtonSelectionManager : MonoBehaviour
         {
             buttonText.text = "Not Selected";
         }
+    }
+
+    public void SetHomePlanet()
+    {
+        selectedPlanet = 0;
+        packageQuota = 25;
+        fuelCost = 0;
+        shippingCharge = 1;
+        estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
+        UpdateGoal();
+    }
+
+    public void SetPlanet1()
+    {
+        selectedPlanet = 1;
+        packageQuota = 100;
+        fuelCost = 200;
+        shippingCharge = 5;
+        estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
+        UpdateGoal();
+    }
+
+    public void SetPlanet2()
+    {
+        selectedPlanet = 2;
+        packageQuota = 500;
+        fuelCost = 500;
+        shippingCharge = 50;
+        estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
+        UpdateGoal();
+    }
+
+    public void SetPlanet3()
+    {
+        selectedPlanet = 3; 
+        packageQuota = 1000;
+        fuelCost = 10000;
+        shippingCharge = 100;
+        estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
+        UpdateGoal();
+    }
+
+    public void SetPlanet4()
+    {
+        selectedPlanet = 3;
+        packageQuota = 5000;
+        fuelCost = 200000;
+        shippingCharge = 500;
+        estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
+        UpdateGoal();
+    }
+
+    public void UpdateGoal()
+    {
+        packageQuotaText.text = "Package Quota: " + packageQuota.ToString();
+        fuelCostText.text = "Fuel Cost: $" + fuelCost.ToString();
+        shippingChargeText.text = "Shipping Charge: $" + shippingCharge.ToString() + " per package";
+        estimatedEarningsText.text = "Estimated Earnings: $" + estimatedEarnings.ToString();
     }
 
     public void StartDay()
