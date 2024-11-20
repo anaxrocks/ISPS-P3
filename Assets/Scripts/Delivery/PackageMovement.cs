@@ -26,19 +26,21 @@ public class PackageMovement : MonoBehaviour
             transform.position.y > screenBounds.y ||
             transform.position.y < -screenBounds.y)
         {
+            ScoreManager.instance.PackageDestroyed();
             Destroy(gameObject);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
-{
-    if (other.CompareTag("Satellite"))
     {
-        // Add score via ScoreManager
-        ScoreManager.instance.AddScore(1); // Award 10 points per hit
-
-        // Destroy the package
-        Destroy(gameObject);
+        if (other.CompareTag("Satellite"))
+        {
+            // Add score via ScoreManager
+            ScoreManager.instance.AddScore(1); // Award 10 points per hit
+            ScoreManager.instance.PackageDestroyed();
+            // Destroy the package
+            Destroy(gameObject);
+        }
     }
-}
+    
 }

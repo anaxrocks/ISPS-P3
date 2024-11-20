@@ -12,11 +12,16 @@ public class PackageShooter : MonoBehaviour
     public float spawnOffset = 1f; // Distance in front of the spaceship
 
     public float shootSpeed = 5f;    // Speed of the package
-
+    public float timeForShootReset, shootCountdown;
+    void Start() 
+    {
+        timeForShootReset = 2.0f / Upgrades.increaseShootingSpeed;
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        shootCountdown -= Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) && shootCountdown <=0)
         {
             ShootPackage();
         }
@@ -25,6 +30,7 @@ public class PackageShooter : MonoBehaviour
     void ShootPackage()
     {
         // Ensure there are packages left to shoot
+        shootCountdown = timeForShootReset;
         if (ScoreManager.instance != null)
         {
 
@@ -46,10 +52,10 @@ public class PackageShooter : MonoBehaviour
                 rb.velocity = Vector3.right * shootSpeed; // Force it to move right in world space
             } // Use no rotation (straight alignment)
             }
-            else
-            {
-                ScoreManager.instance.TriggerGameOver();
-            }
+            // else
+            // {
+            //     ScoreManager.instance.TriggerGameOver();
+            // }
         }
     }
 }

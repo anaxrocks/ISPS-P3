@@ -22,7 +22,8 @@ public class ScoreManager : MonoBehaviour
     private int score = 0; // Player's score
     private int packagesDelivered = 0; // Number of packages delivered
     public int packagesLeft; // Total packages to be delivered
-    private int hp = 3; // Player health points
+    private int hp; // Player health points
+    public int activePackages;
 
     void Awake()
     {
@@ -43,6 +44,8 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         UpdateUI(); // Initialize UI with default values
+        hp = Upgrades.moreHealth;
+        activePackages = 0;
     }
 
     public void AddScore(int points)
@@ -75,18 +78,26 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void ShootPackage()
-{
-    if (packagesLeft > 0)
     {
-        packagesLeft--; // Decrease packages left
-        UpdateUI(); // Refresh the UI to show the new count
+        if (packagesLeft > 0)
+        {
+            packagesLeft--; // Decrease packages left
+            activePackages++;
+            UpdateUI(); // Refresh the UI to show the new count
+        }
+        // else
+        // {
+        //     TriggerGameOver(); // No packages left, trigger game over
+        // }
     }
-    else
+    public void PackageDestroyed()
     {
-        TriggerGameOver(); // No packages left, trigger game over
+        activePackages--;
+        if (packagesLeft <= 0 && activePackages == 0)
+        {
+            TriggerGameOver();
+        }
     }
-}
-
 
     private void UpdateUI()
     {

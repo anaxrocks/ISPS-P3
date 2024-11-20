@@ -5,7 +5,7 @@ using UnityEngine;
 public class SatelliteSpawner : MonoBehaviour
 {
     public GameObject SatellitePrefab;
-    public float spawnRate = 8;
+    public float spawnRate = 3;
 
     private float timer = 0;
 

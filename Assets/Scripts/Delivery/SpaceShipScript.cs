@@ -30,22 +30,27 @@ public class SpaceShipScript : MonoBehaviour
         objectPosition.y = Mathf.Clamp(objectPosition.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
         transform.position = objectPosition;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        /* New version stops player if they are not hitting any keys */
+         Vector2 newVelocity = Vector2.zero; // Start with no movement
+
+        if (Input.GetKey(KeyCode.UpArrow))
         {
-            myRigidbody.velocity = Vector2.up * thrusterForce;
+            newVelocity += Vector2.up * thrusterForce;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            myRigidbody.velocity = Vector2.right * thrusterForce;
+            newVelocity += Vector2.right * thrusterForce;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            myRigidbody.velocity = Vector2.left * thrusterForce;
+            newVelocity += Vector2.left * thrusterForce;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
-            myRigidbody.velocity = Vector2.down * thrusterForce;
+            newVelocity += Vector2.down * thrusterForce;
         }
+
+        myRigidbody.velocity = newVelocity;
     }
 
     void OnCollisionEnter2D(Collision2D other)
