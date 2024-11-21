@@ -23,7 +23,7 @@ public class Upgrades : MonoBehaviour
     // Delivery Upgrades
     public static int increaseShootingSpeed = 1;
     public static int increaseShootingSpeedCounter;
-    public static int moreHealth = 3;
+    public static int moreHealth = 1;
     public static int moreHealthCounter;
     public static int addLasers;
     public static int addLasersCounter;

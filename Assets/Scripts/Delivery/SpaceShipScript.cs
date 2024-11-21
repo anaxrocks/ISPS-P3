@@ -33,19 +33,19 @@ public class SpaceShipScript : MonoBehaviour
         /* New version stops player if they are not hitting any keys */
          Vector2 newVelocity = Vector2.zero; // Start with no movement
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey ("w"))
         {
             newVelocity += Vector2.up * thrusterForce;
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey ("d"))
         {
             newVelocity += Vector2.right * thrusterForce;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey ("a"))
         {
             newVelocity += Vector2.left * thrusterForce;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey ("s"))
         {
             newVelocity += Vector2.down * thrusterForce;
         }
