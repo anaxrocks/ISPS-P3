@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpaceShipScript : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
-    public float thrusterForce = 5;
+    public float thrusterForce = 10;
     private Camera mainCamera;
     private Vector3 screenBounds;
     private float objectWidth;

@@ -2196,7 +2196,7 @@ MonoBehaviour:
   - {fileID: 5386925608013144879, guid: 36a53a63825274399949be8d0b15d90b, type: 3}
   - {fileID: 3805924163343419818, guid: f602f39883486416181cd98bc8a3ca62, type: 3}
   - {fileID: 1934921127036906178, guid: 5bcae060d08ea40f0930574533e02bca, type: 3}
-  timetoSpawn: 1
+  timetoSpawn: 0.8
   spawnCountdown: 0
 --- !u!4 &1207204680
 Transform:

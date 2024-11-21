@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeachBallSpawner : MonoBehaviour
 {
     public GameObject BeachBallPrefab;
-    public float spawnRate = 3;
+    public float spawnRate = 5;
 
     private float timer = 0;
 

@@ -249,6 +249,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= researchCost && researchCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= researchCost;
+            UpdateUI();
 
             // 50/50 chance to unlock piece of planet
             if (Random.Range(0, 2) == 1)

@@ -6,7 +6,7 @@ public class SatelliteMovement : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float moveSpeed = 10;
+    public float moveSpeed;
     public float deadZone = -45;
     void Start()
     {

@@ -975,6 +975,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 877868112}
   gameOverScoreText: {fileID: 795824552}
   packagesLeft: 0
+  activePackages: 0
 --- !u!4 &927560997
 Transform:
   m_ObjectHideFlags: 0
@@ -1298,6 +1299,8 @@ MonoBehaviour:
   randomPackage: 0
   spawnOffset: 1
   shootSpeed: 5
+  timeForShootReset: 0
+  shootCountdown: 0
 --- !u!1 &1574609043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SatellitePrefab: {fileID: 4195449824041108229, guid: e587b4e70467e49e287c4efea1713649, type: 3}
-  spawnRate: 8
+  spawnRate: 5
 --- !u!4 &1878414940
 Transform:
   m_ObjectHideFlags: 0
