@@ -68,6 +68,7 @@ public class ScoreManager : MonoBehaviour
 
     public void TakeDamage()
     {
+        SpaceShipScript.instance.FlashRed(0.1f);
         hp--; // Decrement player health
         UpdateUI();
 
