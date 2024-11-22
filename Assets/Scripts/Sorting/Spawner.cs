@@ -23,7 +23,7 @@ public class Spawner : MonoBehaviour
             if (randomPackage >= packages.Length) {
                 randomPackage = 0; //rock
             }
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-9,9), Random.Range(4,8), 0);
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-8,8), Random.Range(4,8), 0);
 
             Instantiate(packages[randomPackage], randomSpawnPosition, Quaternion.identity);
         }
