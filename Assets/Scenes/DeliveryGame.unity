@@ -1162,6 +1162,7 @@ GameObject:
   - component: {fileID: 1327403426}
   - component: {fileID: 1327403428}
   - component: {fileID: 1327403429}
+  - component: {fileID: 1327403430}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: SpaceShip
@@ -1342,6 +1343,23 @@ MonoBehaviour:
   shootSpeed: 5
   timeForShootReset: 0
   shootCountdown: 0
+--- !u!114 &1327403430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327403423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85d53e86916454f0393a3f4c3672a1bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laser: {fileID: 6546898530773545454, guid: 1a03bd239c4724e28a5a34ea86663029, type: 3}
+  spawnOffset: 1
+  LasershootSpeed: 5
+  timeForShootResetLaser: 0
+  shootCountdownLaser: 0
 --- !u!1 &1574609043
 GameObject:
   m_ObjectHideFlags: 0
