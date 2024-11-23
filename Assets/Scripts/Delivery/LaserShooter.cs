@@ -30,7 +30,6 @@ public class LaserShooter : MonoBehaviour
         shootCountdownLaser -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.J) && shootCountdownLaser <= 0 && Upgrades.addLasersCounter > 0)
         {
-            Debug.Log("Laser shoot Enabled 2");
             ShootLaser();
         }
     }
