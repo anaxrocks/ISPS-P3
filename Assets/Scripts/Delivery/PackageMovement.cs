@@ -5,7 +5,7 @@ using UnityEngine;
 public class PackageMovement : MonoBehaviour
 {
     public float speed = 5f; // Movement speed of the package
-
+    public Sprite receivedSprite;
     private Camera mainCamera;
     private Vector2 screenBounds;
 
@@ -36,6 +36,8 @@ public class PackageMovement : MonoBehaviour
         if (other.CompareTag("Satellite"))
         {
             // Add score via ScoreManager
+            GameObject receiver = other.gameObject;
+            receiver.GetComponent<SpriteRenderer>().sprite = receivedSprite;
             ScoreManager.instance.AddScore(1); // Award 10 points per hit
             ScoreManager.instance.PackageDestroyed();
             // Destroy the package

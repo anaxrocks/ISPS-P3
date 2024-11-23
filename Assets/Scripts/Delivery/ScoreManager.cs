@@ -37,8 +37,11 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
         packagesLeft = Currency.pSorted;
+        if (packagesLeft == 0)
+        {
+            TriggerGameOver();
+        }
     }
 
     void Start()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PackageShooter : MonoBehaviour
 {
-    //public GameObject packagePrefab; // Prefab to shoot
+    // public GameObject packagePrefab; // Prefab to shoot
 
     public GameObject[] packages; //Prefabs to shoot
 
@@ -45,17 +45,14 @@ public class PackageShooter : MonoBehaviour
                 Vector3 spawnPosition = transform.position + new Vector3(spawnOffset, 0.15f, 0f);
 
                 // Instantiate the package prefab
+            // GameObject package = Instantiate(packagePrefab, spawnPosition, Quaternion.identity);
             GameObject package = Instantiate(packages[randomPackage], spawnPosition, Quaternion.identity);
             Rigidbody2D rb = package.GetComponent<Rigidbody2D>();
             if (rb != null)
-            {
-                rb.velocity = Vector3.right * shootSpeed; // Force it to move right in world space
-            } // Use no rotation (straight alignment)
+                {
+                    rb.velocity = Vector3.right * shootSpeed; // Force it to move right in world space
+                } // Use no rotation (straight alignment)
             }
-            // else
-            // {
-            //     ScoreManager.instance.TriggerGameOver();
-            // }
         }
     }
 }
