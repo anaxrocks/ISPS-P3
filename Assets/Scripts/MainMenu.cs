@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public bool playedOnce = false;
     public void ExitButton()
     {
         Application.Quit();
@@ -12,6 +13,10 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Hub");
+        if (playedOnce){
+            SceneManager.LoadScene("Hub");
+        } else {
+            SceneManager.LoadScene("IntroNarrative");
+        }
     }
 }
