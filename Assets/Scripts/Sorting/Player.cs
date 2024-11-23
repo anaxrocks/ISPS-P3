@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     */
     public Sprite[] packageSprites; //list of sprites, must be same order as packages
     public Sprite[] binSprites; //list of bin sprites
+    public Sprite[] binClosed; //list of bin closed sprites
     public Transform[] bins; //list of bins. Bins are 1-indexed
     public TextMeshProUGUI scoreText; //PSorted
     public TextMeshProUGUI summaryText;
@@ -225,7 +226,7 @@ public class Player : MonoBehaviour
     {
         Currency.pMiss += 1;
         //5 is the index for a closed package
-        bins[i-1].GetComponent<SpriteRenderer>().sprite = packageSprites[5];
+        bins[i-1].GetComponent<SpriteRenderer>().sprite = binClosed[i-1];
         binCountdown[i-1] = timetoReset;
     }
     
