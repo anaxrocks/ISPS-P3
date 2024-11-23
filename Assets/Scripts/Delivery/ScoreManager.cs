@@ -42,6 +42,7 @@ public class ScoreManager : MonoBehaviour
         {
             TriggerGameOver();
         }
+        Time.timeScale = 1f;
     }
 
     void Start()
