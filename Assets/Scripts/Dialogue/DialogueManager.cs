@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -79,5 +80,8 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         dialogueUI.SetActive(false);
         Debug.Log("End dialogue");
+        if (SceneManager.GetActiveScene().name == "IntroNarrative") {
+            SceneManager.LoadScene("Hub");
+        }
     }
 }
