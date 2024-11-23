@@ -511,6 +511,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f136e4b7749a849ec856b9e258aeadc2, type: 3}
   - {fileID: 21300000, guid: cd9058060d8c64d3f9cc22b4b944eec8, type: 3}
   - {fileID: 21300000, guid: dc0afacc59f124b019064d206b03dbcc, type: 3}
+  binClosed:
+  - {fileID: 21300000, guid: 5955becb7cf1b43bba3afbbf18c10b73, type: 3}
+  - {fileID: 21300000, guid: 699ec170c5f334796a459ed20a24bdb2, type: 3}
+  - {fileID: 21300000, guid: 5c39ed717115047d2b1b2f91fd1b5c5f, type: 3}
+  - {fileID: 21300000, guid: 0c2c5f179ccf44860b4fce199758d366, type: 3}
   bins:
   - {fileID: 591857114}
   - {fileID: 222545846}
