@@ -16,7 +16,13 @@ public class Timer : MonoBehaviour
     void Start()
     {
         gameTimer = Currency.pSortTimer;
-        timerRunning = true;
+        if (Tutorial.tutorial == true)
+        {
+            timerRunning = false;
+        } else
+        {
+            timerRunning = true;
+        }
     }
 
     // Update is called once per frame

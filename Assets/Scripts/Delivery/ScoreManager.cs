@@ -37,7 +37,14 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        packagesLeft = Currency.pSorted;
+        if (Tutorial.tutorial == true)
+        {
+            packagesLeft = 10000000;
+        } else
+        {
+            packagesLeft = Currency.pSorted;
+        }
+            
         if (packagesLeft == 0)
         {
             TriggerGameOver();
@@ -47,7 +54,13 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        hp = Upgrades.moreHealth;
+        if (Tutorial.tutorial == true)
+        {
+            hp = 100000000;
+        } else
+        {
+            hp = Upgrades.moreHealth;
+        }
         UpdateUI(); // Initialize UI with default values
         activePackages = 0;
     }
@@ -102,6 +115,10 @@ public class ScoreManager : MonoBehaviour
         {
             TriggerGameOver();
         }
+        if (Tutorial.tutorial == true && score == 5)
+        {
+            TriggerGameOver();
+        }
     }
 
     private void UpdateUI()
@@ -113,11 +130,14 @@ public class ScoreManager : MonoBehaviour
         if (packagesDeliveredText != null)
             packagesDeliveredText.text = "Packages Delivered: " + packagesDelivered;
 
-        if (packagesLeftText != null)
+        if (Tutorial.tutorial == false)
+        {
+            if (packagesLeftText != null)
             packagesLeftText.text = "Packages Left: " + packagesLeft;
-
-        if (hpText != null)
-            hpText.text = "HP: " + hp;
+        
+            if (hpText != null)
+                hpText.text = "HP: " + hp;
+        }
     }
 
     public void TriggerGameOver()

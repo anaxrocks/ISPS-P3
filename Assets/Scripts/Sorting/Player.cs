@@ -78,7 +78,6 @@ public class Player : MonoBehaviour
             flip();
         }
 
-        scoreText.text = "Score: " + Currency.pSorted.ToString();
         transform.position = new Vector3(mouseX, transform.position.y, transform.position.z);
 
         //Decrease bin countdown if above zero, or open bins (visually)
@@ -187,6 +186,19 @@ public class Player : MonoBehaviour
         }
 
         Currency.pSorted = p1 + p2 + p3 + p4;
+
+        if (Tutorial.tutorial == true)
+        {
+            scoreText.text = "Score: " + Currency.pSorted.ToString() + " / 5";
+            if (Currency.pSorted == 5)
+            {
+                showSummary();
+            }
+        }
+        else
+        {
+            scoreText.text = "Score: " + Currency.pSorted.ToString();
+        }
     }
 
     /* Use this to add to stack and also take care of the visuals! Does not

@@ -43,23 +43,12 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
         }
 
-        // colliding but haven't pressed E yet
-        // else if (isPlayerInTrigger && !Input.GetKeyDown(KeyCode.E) && !isAutomatic){
-        //     if (attentionIcon != null){
-        //         attentionIcon.GetComponent<SpriteRenderer>().enabled = true;
-        //     }
-        //         // attentionIcon.SetActive(true);
-        //     // GetComponent<LineRenderer>().enabled = true;
-        // }
-
         else if (DialogueManager.Instance.isDialogueActive && hasPlayed && (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))) {
             DialogueManager.Instance.DisplayNextDialogueLine();
         }
 
-        else if (!hasPlayed && Input.GetKeyDown(KeyCode.E))
+        else if (!hasPlayed && Tutorial.tutorial == true)
         {
-            Debug.Log("Pressed E");
-            Debug.Log(transform.position);
             //SoundManager.Instance.PlaySound3D("Interact", transform.position);
             TriggerDialogue();
         }
