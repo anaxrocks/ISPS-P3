@@ -559,7 +559,7 @@ MonoBehaviour:
   dialogueArea: {fileID: 1743415232}
   dialogueUI: {fileID: 213713378}
   isDialogueActive: 0
-  typingSpeed: 0.1
+  typingSpeed: 0.01
 --- !u!1 &328072498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,6 +1360,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1550592081}
+  - {fileID: 2088924094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234788159
@@ -2120,18 +2121,20 @@ MonoBehaviour:
   dialogue:
     dialogueLines:
     - character:
-        name: George
-        icon: {fileID: 21300000, guid: 11985394f6f874e7ba942f34dde3c0b6, type: 3}
-      line: yeehaw! 1
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: So, you want to run a delivery service? Hoho! Welcome to your new world!
     - character:
-        name: Patricia
-        icon: {fileID: 1205564795280684605, guid: 5441472a8e30c41268034f6309b3f2c8, type: 3}
-      line: yeehaw! 2
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: "In this hub, you can see the amount of money you\u2019ve earned and
+        the planets you work with. "
     - character:
-        name: George
-        icon: {fileID: 21300000, guid: 11985394f6f874e7ba942f34dde3c0b6, type: 3}
-      line: yeehaw! 3
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: 'Try clicking on our home dragon planet to see more. '
   isAutomatic: 0
+  isTutorial: 1
 --- !u!212 &1550592080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2284,6 +2287,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1307004215}
         m_TargetAssemblyTypeName: ButtonSelectionManager, Assembly-CSharp
         m_MethodName: SetHomePlanet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2088924095}
+        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+        m_MethodName: TriggerDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2811,6 +2826,76 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000033377892, y: 30.299988}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2088924093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2088924094}
+  - component: {fileID: 2088924095}
+  m_Layer: 0
+  m_Name: Tutorial COSTS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2088924094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088924093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1217799857}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088924095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088924093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19865f02b324c47ceb83b521180a450a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    dialogueLines:
+    - character:
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: 'Now you can see the details of your home network. '
+    - character:
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: The package quota tells you how many deliveries your customers in this
+        network expect.
+    - character:
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: "The shipping charge is how much money you\u2019ll make per package delivered."
+    - character:
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: The fuel costs tell you much cash all that transport will take.
+    - character:
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: 'And the estimated earnings sum up all that info, showing you how much
+        money you can expect from the whole darn route. '
+  isAutomatic: 0
+  isTutorial: 1
 --- !u!1 &2123242711
 GameObject:
   m_ObjectHideFlags: 0

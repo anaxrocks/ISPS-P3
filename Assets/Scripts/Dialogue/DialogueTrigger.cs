@@ -28,11 +28,21 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public bool isAutomatic = false;
     private bool hasPlayed = false;
+    public bool isTutorial = false;
 
     public void TriggerDialogue()
     {
-        hasPlayed = true;
-        DialogueManager.Instance.StartDialogue(dialogue);
+        if (!hasPlayed)
+        {
+            if (Tutorial.tutorial == false && isTutorial == true)
+            {
+
+            } else
+            {
+                hasPlayed = true;
+                DialogueManager.Instance.StartDialogue(dialogue);
+            }
+        }
     }
 
     private void Update()
