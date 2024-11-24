@@ -7,7 +7,7 @@ using TMPro;
 public class Currency : MonoBehaviour
 {
     public static int money;
-    public static int repHome;
+    public static int repHome = 3;
     public static int rep1;
     public static int rep2;
     public static int rep3;

@@ -110,7 +110,7 @@ public class PlanetSelection : MonoBehaviour
     public void SetHomePlanet()
     {
         selectedPlanet = 0;
-        packageQuota = 25;
+        packageQuota = 10;
         fuelCost = 0;
         shippingCharge = 1;
         estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
@@ -160,6 +160,7 @@ public class PlanetSelection : MonoBehaviour
     public void UpdateGoal()
     {
         packageQuotaText.text = "Package Quota: " + packageQuota.ToString();
+        packageQuota = packageQuota;
         fuelCostText.text = "Fuel Cost: $" + fuelCost.ToString();
         shippingChargeText.text = "Shipping Charge: $" + shippingCharge.ToString() + " per package";
         estimatedEarningsText.text = "Estimated Earnings: $" + estimatedEarnings.ToString();

@@ -13,6 +13,7 @@ public class Summary : MonoBehaviour
     public TextMeshProUGUI laborCosts; 
     public TextMeshProUGUI fuelCosts; 
     public TextMeshProUGUI profit;
+
     private int earnings;
     private int totalprofit;
 
@@ -24,23 +25,69 @@ public class Summary : MonoBehaviour
         Currency.money += totalprofit;
 
         // Update all the UI elements
-        if (moneyMade != null)
-            moneyMade.text = "Money Earned: $" + Currency.pDelivered.ToString();
+        if (moneyMade != null){
+            moneyMade.text = "Money Earned: $" + Currency.pDelivered.ToString();}
 
-        if (packagesSorted != null)
-            packagesSorted.text = "Packages Sorted: " + Currency.pSorted.ToString();
+        if (packagesSorted != null){
+            packagesSorted.text = "Packages Sorted: " + Currency.pSorted.ToString();}
 
-        if (packagesDelivered != null)
-            packagesDelivered.text = "Packages Delivered: " + Currency.pDelivered.ToString();
+        if (packagesDelivered != null){
+            packagesDelivered.text = "Packages Delivered: " + Currency.pDelivered.ToString();}
 
-        if (laborCosts != null)
-            laborCosts.text = "Labor costs: $0";
+        if (laborCosts != null){
+            laborCosts.text = "Labor costs: $0";}
 
-        if (fuelCosts != null)
-            fuelCosts.text = "Fuel costs: $" + PlanetSelection.fuelCost.ToString();
+        if (fuelCosts != null){
+            fuelCosts.text = "Fuel costs: $" + PlanetSelection.fuelCost.ToString();}
 
-        if (profit != null)
-            profit.text = "Profit: $" + totalprofit.ToString();
+        if (profit != null){
+            profit.text = "Profit: $" + totalprofit.ToString();}
+
+        if (Currency.pDelivered >= PlanetSelection.packageQuota){
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 0){
+                Currency.repHome += 1;
+                Debug.Log("repHome: " + Currency.repHome);
+            }
+
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 1){
+                Currency.rep1 += 1;
+            }
+
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 2){
+                Currency.rep2 += 1;
+            }
+
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 3){
+                Currency.rep3 += 1;
+            }
+
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 4){
+                Currency.rep4 += 1;
+            }
+        }
+
+        if (Currency.pDelivered < PlanetSelection.packageQuota){
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 0 && Currency.repHome > 3){
+                Currency.repHome -= 1;
+            }
+
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 1 && Currency.rep1 > 0){
+                Currency.rep1 -= 1;
+            }
+
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 2 && Currency.rep2 > 0){
+                Currency.rep2 -= 1;
+            }
+
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 3 && Currency.rep3 > 0){
+                Currency.rep3 -= 1;
+            }
+
+            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 4 && Currency.rep4 > 0){
+                Currency.rep4 -= 1;
+            }
+        }
+
     }
 
     public void GoToUpgrades()
