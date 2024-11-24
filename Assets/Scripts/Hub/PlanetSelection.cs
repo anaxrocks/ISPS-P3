@@ -110,7 +110,13 @@ public class PlanetSelection : MonoBehaviour
     public void SetHomePlanet()
     {
         selectedPlanet = 0;
-        packageQuota = 10;
+        if (Tutorial.tutorial == true)
+        {
+            packageQuota = 5;
+        } else
+        {
+            packageQuota = 10;
+        }
         fuelCost = 0;
         shippingCharge = 1;
         estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;

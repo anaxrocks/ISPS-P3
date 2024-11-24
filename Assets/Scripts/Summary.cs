@@ -13,6 +13,7 @@ public class Summary : MonoBehaviour
     public TextMeshProUGUI laborCosts; 
     public TextMeshProUGUI fuelCosts; 
     public TextMeshProUGUI profit;
+    public TextMeshProUGUI feedbackMsg;
 
     private int earnings;
     private int totalprofit;
@@ -48,7 +49,9 @@ public class Summary : MonoBehaviour
             profit.text = "Profit: $" + totalprofit.ToString();}
 
         if (Currency.pDelivered >= PlanetSelection.packageQuota){
-            if(PlanetSelection.selectedPlanet == 0 && Currency.repHome < 5){
+            feedbackMsg.text = "Well done! You've completed your quota!";
+            feedbackMsg.color = Color.green;
+            if (PlanetSelection.selectedPlanet == 0 && Currency.repHome < 5){
                 Currency.repHome += 1;
                 Debug.Log("repHome: " + Currency.repHome);
             }
@@ -71,7 +74,9 @@ public class Summary : MonoBehaviour
         }
 
         if (Currency.pDelivered < PlanetSelection.packageQuota){
-            if(PlanetSelection.selectedPlanet == 0 && Currency.repHome > 3){
+            feedbackMsg.text = "You didn't make the quota this time.. Try again!";
+            feedbackMsg.color = Color.red;
+            if (PlanetSelection.selectedPlanet == 0 && Currency.repHome > 3){
                 Currency.repHome -= 1;
             }
 
