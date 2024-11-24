@@ -20,7 +20,7 @@ public class DialogueManager : MonoBehaviour
 
     public float typingSpeed = 0.01f;
 
-    private void Awake()
+    private void Start()
     {
         if (Instance == null)
             Instance = this;
