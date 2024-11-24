@@ -160,7 +160,6 @@ public class PlanetSelection : MonoBehaviour
     public void UpdateGoal()
     {
         packageQuotaText.text = "Package Quota: " + packageQuota.ToString();
-        packageQuota = packageQuota;
         fuelCostText.text = "Fuel Cost: $" + fuelCost.ToString();
         shippingChargeText.text = "Shipping Charge: $" + shippingCharge.ToString() + " per package";
         estimatedEarningsText.text = "Estimated Earnings: $" + estimatedEarnings.ToString();

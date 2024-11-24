@@ -4,6 +4,7 @@ public class RepController : MonoBehaviour
 {
     //public SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer
     public Sprite[] reputationSprites;   // Array of reputation sprites (assign in Inspector)
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
