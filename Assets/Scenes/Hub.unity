@@ -1346,8 +1346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HubIntro: {fileID: 1550592078}
-  Instructions: {fileID: 0}
-  StartButton: {fileID: 0}
+  Instructions: {fileID: 2090814720}
+  StartButton: {fileID: 2090814720}
 --- !u!4 &1217799857
 Transform:
   m_ObjectHideFlags: 0
@@ -1363,6 +1363,7 @@ Transform:
   m_Children:
   - {fileID: 1550592081}
   - {fileID: 2088924094}
+  - {fileID: 2090814721}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234788159
@@ -2051,7 +2052,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edd935007bc64976aa6061a4cb84d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
   reputationSprites:
   - {fileID: 192145763, guid: 1711bd88d2dd14402bb907ff0038b1ae, type: 3}
   - {fileID: -1219468988, guid: 1711bd88d2dd14402bb907ff0038b1ae, type: 3}
@@ -2996,6 +2996,37 @@ MonoBehaviour:
         money you can expect from the whole darn route. '
   isAutomatic: 0
   isTutorial: 1
+--- !u!1 &2090814720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090814721}
+  m_Layer: 0
+  m_Name: Ignore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2090814721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090814720}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 473.05737, y: 262.74005, z: -72.53113}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1217799857}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2123242711
 GameObject:
   m_ObjectHideFlags: 0
