@@ -16,7 +16,7 @@ public class Currency : MonoBehaviour
 
     // minigame variables
     public static int pGoal; // num packages needed
-    public static float pSortTimer = 30; // time left for sorting minigame
+    public static float pSortTimer = 60; // time left for sorting minigame
     public static int pSorted; // sorting minigame
     public static int pMiss; // mis-sorted packages
     public static float pDeliveryTimer = 30; // time left for sorting minigame

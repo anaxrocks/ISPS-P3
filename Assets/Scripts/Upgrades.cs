@@ -255,7 +255,11 @@ public class Upgrades : MonoBehaviour
             if (Random.Range(0, 2) == 1)
             {
                 researchTries = 0;
-                researchPieces++;
+                researchCounter++;
+                researchCost *= 2;
+                print("planet unlocked");
+                // change research value
+                UpdateUI();
                 print("1");
             } else
             {
@@ -267,14 +271,6 @@ public class Upgrades : MonoBehaviour
             if (researchTries == 3)
             {
                 researchTries = 0;
-                researchPieces++; // probably update UI to indicate pieces +1
-            }
-
-            // 3 pieces = planet unlocked
-            if (researchPieces == 3)
-            {
-                researchTries = 0;
-                researchPieces = 0;
                 researchCounter++;
                 researchCost *= 2;
                 print("planet unlocked");

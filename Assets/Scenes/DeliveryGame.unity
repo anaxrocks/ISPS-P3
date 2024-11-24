@@ -2325,7 +2325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SatellitePrefab: {fileID: 4195449824041108229, guid: e587b4e70467e49e287c4efea1713649, type: 3}
-  spawnRate: 5
+  spawnRate: 3
 --- !u!4 &1878414940
 Transform:
   m_ObjectHideFlags: 0
