@@ -21,6 +21,10 @@ public class Summary : MonoBehaviour
     void Start()
     {
         earnings = Currency.pDelivered * PlanetSelection.shippingCharge;
+        if(Currency.repHome == 5){
+            earnings = earnings * 2;
+
+        }
         totalprofit = (Currency.pDelivered * PlanetSelection.shippingCharge) - PlanetSelection.fuelCost;
         Currency.money += totalprofit;
 
@@ -44,46 +48,46 @@ public class Summary : MonoBehaviour
             profit.text = "Profit: $" + totalprofit.ToString();}
 
         if (Currency.pDelivered >= PlanetSelection.packageQuota){
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 0){
+            if(PlanetSelection.selectedPlanet == 0 && Currency.repHome < 5){
                 Currency.repHome += 1;
                 Debug.Log("repHome: " + Currency.repHome);
             }
 
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 1){
+            if(PlanetSelection.selectedPlanet == 1 && Currency.rep1 < 5){
                 Currency.rep1 += 1;
             }
 
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 2){
+            if(PlanetSelection.selectedPlanet == 2 && Currency.rep2 < 5){
                 Currency.rep2 += 1;
             }
 
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 3){
+            if(PlanetSelection.selectedPlanet == 3 && Currency.rep3 < 5){
                 Currency.rep3 += 1;
             }
 
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 4){
+            if(PlanetSelection.selectedPlanet == 4 && Currency.rep4 < 5){
                 Currency.rep4 += 1;
             }
         }
 
         if (Currency.pDelivered < PlanetSelection.packageQuota){
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 0 && Currency.repHome > 3){
+            if(PlanetSelection.selectedPlanet == 0 && Currency.repHome > 3){
                 Currency.repHome -= 1;
             }
 
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 1 && Currency.rep1 > 0){
+            if(PlanetSelection.selectedPlanet == 1 && Currency.rep1 > 0){
                 Currency.rep1 -= 1;
             }
 
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 2 && Currency.rep2 > 0){
+            if(PlanetSelection.selectedPlanet == 2 && Currency.rep2 > 0){
                 Currency.rep2 -= 1;
             }
 
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 3 && Currency.rep3 > 0){
+            if(PlanetSelection.selectedPlanet == 3 && Currency.rep3 > 0){
                 Currency.rep3 -= 1;
             }
 
-            if(PlanetSelection.selectedPlanet != null && PlanetSelection.selectedPlanet == 4 && Currency.rep4 > 0){
+            if(PlanetSelection.selectedPlanet == 4 && Currency.rep4 > 0){
                 Currency.rep4 -= 1;
             }
         }
