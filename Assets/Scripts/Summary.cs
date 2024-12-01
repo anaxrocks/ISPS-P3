@@ -22,9 +22,8 @@ public class Summary : MonoBehaviour
     void Start()
     {
         earnings = Currency.pDelivered * PlanetSelection.shippingCharge;
-        if(Currency.repHome == 5){
+        if (Currency.repHome == 5){
             earnings = earnings * 2;
-
         }
         totalprofit = (Currency.pDelivered * PlanetSelection.shippingCharge) - PlanetSelection.fuelCost;
         Currency.money += totalprofit;
