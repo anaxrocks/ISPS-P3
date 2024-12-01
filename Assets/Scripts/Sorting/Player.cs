@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public Camera cam;
     private float mouseX;
 
-    private Stack<int> packageStack = new Stack<int>();
+    private Queue packageStack = new Queue();
     public Transform[] stackSlots; //visual stack above player
     /*  0 rock
         1 garden package
@@ -22,12 +22,13 @@ public class Player : MonoBehaviour
     public Sprite[] binClosed; //list of bin closed sprites
     public Transform[] bins; //list of bins. Bins are 1-indexed
     public TextMeshProUGUI scoreText; //PSorted
-    public TextMeshProUGUI summaryText;
+    private bool containsRock;
 
     //for player movement
     bool facingRight = true;
 
     public GameObject summaryCanvas; //Summary once timer is over. 
+    public TextMeshProUGUI summaryText; //for summary screen
 
     public bool drop1;
     public bool drop2;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
             binCountdown[i] = 0.0f;
         }
         maxStack = Upgrades.handLimit;
+        containsRock = false;
     }
 
     // Update is called once per frame
@@ -92,12 +94,17 @@ public class Player : MonoBehaviour
                 openBin(i);
             }
         }
+
+        //check if rock
+        if (!packageStack.Contains(0)) {
+            containsRock = false;
+        }
         if (drop1)
         {
             if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
                 && binCountdown[0] <=0)
             {
-                if (packageStack.Peek() == 1)
+                if (packageStack.Peek().Equals(1))
                 {
                     p1 += 1;
                     print("package 1 added to bin");
@@ -107,9 +114,7 @@ public class Player : MonoBehaviour
                     print("mis-sort!");
                     closeBin(1);
                 }
-                PopFromStack();
-                //packageStack.Pop();
-
+                PopFromQueue();
             }
         }
 
@@ -118,7 +123,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
                 && binCountdown[1] <=0)
             {
-                if (packageStack.Peek() == 2)
+                if (packageStack.Peek().Equals(2))
                 {
                     p2 += 1;
                     print("package 2 added to bin");
@@ -128,8 +133,7 @@ public class Player : MonoBehaviour
                     print("mis-sort!");
                     closeBin(2);
                 }
-                PopFromStack();
-                //packageStack.Pop();
+                PopFromQueue();
             }
         }
 
@@ -138,7 +142,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
                 && binCountdown[2] <=0)
             {
-                if (packageStack.Peek() == 3)
+                if (packageStack.Peek().Equals(3))
                 {
                     p3 += 1;
                     print("package 3 added to bin");
@@ -148,8 +152,7 @@ public class Player : MonoBehaviour
                     print("mis-sort!");
                     closeBin(3);
                 }   
-                PopFromStack();
-                //packageStack.Pop();;
+                PopFromQueue();
             }
         }
 
@@ -158,7 +161,7 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
                 && binCountdown[3] <=0)
             {
-                if (packageStack.Peek() == 4)
+                if (packageStack.Peek().Equals(4))
                 {
                     p4 += 1;
                     print("package 4 added to bin");
@@ -168,8 +171,7 @@ public class Player : MonoBehaviour
                     print("mis-sort!");
                     closeBin(4);
                 }
-                PopFromStack();
-                //packageStack.Pop();
+                PopFromQueue();
             }
         }
         //Can discard any package or rock
@@ -179,8 +181,7 @@ public class Player : MonoBehaviour
             {
                 if (packageStack.Count != 0)
                 {
-                    PopFromStack();
-                    //packageStack.Pop();
+                    PopFromQueue();
                     print("discarded package");
                 }
             }
@@ -209,17 +210,22 @@ public class Player : MonoBehaviour
     {
         int size = packageStack.Count;
         stackSlots[size].GetComponent<SpriteRenderer>().sprite = packageSprites[i];
-        packageStack.Push(i);
+        packageStack.Enqueue(i);
     }
 
     /* Use this to pop from stack and also take care of the visuals! Does not
         check for stack size so careful~
     */
-    private void PopFromStack()
+    private void PopFromQueue()
     {
         int size = packageStack.Count;
-        stackSlots[size - 1].GetComponent<SpriteRenderer>().sprite = null;
-        packageStack.Pop();
+        stackSlots[0].GetComponent<SpriteRenderer>().sprite = null;
+        for (int i = 0; i < packageStack.Count; i++)
+        {
+            stackSlots[i].GetComponent<SpriteRenderer>().sprite = 
+                stackSlots[i+1].GetComponent<SpriteRenderer>().sprite;
+        }
+        packageStack.Dequeue();
     }
     /* Closes the bin for a missort. Bins are 1-indexed. */
     private void closeBin(int i)
@@ -235,6 +241,7 @@ public class Player : MonoBehaviour
     {
         bins[i].GetComponent<SpriteRenderer>().sprite = binSprites[i];
     }
+
     /* Flips character */
     void flip()
     {
@@ -255,11 +262,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Package1") {
             if ((packageStack.Count < maxStack &&
                 packageStack.Count > 0 &&
-                packageStack.Peek() != 0) ||
+                !containsRock) ||
                 packageStack.Count == 0)
             {
                 AddToStack(1);
-                //packageStack.Push(1);
                 print(packageStack.Peek());
             }
         }
@@ -268,11 +274,10 @@ public class Player : MonoBehaviour
         {
             if ((packageStack.Count < maxStack &&
                 packageStack.Count > 0 &&
-                packageStack.Peek() != 0) ||
+                !containsRock) ||
                 packageStack.Count == 0)
             {
                 AddToStack(2);
-                //packageStack.Push(2);
                 print(packageStack.Peek());
             }
         }
@@ -281,11 +286,10 @@ public class Player : MonoBehaviour
         {
             if ((packageStack.Count < maxStack &&
                 packageStack.Count > 0 &&
-                packageStack.Peek() != 0) ||
+                !containsRock) ||
                 packageStack.Count == 0)
             {
                 AddToStack(3);
-                //packageStack.Push(3);
                 print(packageStack.Peek());
             }
         }
@@ -294,11 +298,10 @@ public class Player : MonoBehaviour
         {
             if ((packageStack.Count < maxStack &&
                 packageStack.Count > 0 &&
-                packageStack.Peek() != 0)||
+                !containsRock)||
                 packageStack.Count == 0)
             {
                 AddToStack(4);
-                //packageStack.Push(4);
                 print(packageStack.Peek());
             }
         }
@@ -310,7 +313,7 @@ public class Player : MonoBehaviour
                 packageStack.Count == 0)
             {
                 AddToStack(0);
-                //packageStack.Push(0);
+                containsRock = true;
                 print(packageStack.Peek());
             }
         }
