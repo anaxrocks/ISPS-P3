@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI characterName;
     public TextMeshProUGUI dialogueArea;
     public GameObject dialogueUI;
+    public GameObject startButton;
 
     private Queue<DialogueLine> lines;
 
@@ -80,8 +81,14 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         dialogueUI.SetActive(false);
         Debug.Log("End dialogue");
+
         if (SceneManager.GetActiveScene().name == "IntroNarrative") {
             SceneManager.LoadScene("Hub");
+        }
+
+        if((SceneManager.GetActiveScene().name == "SortingPackagesMain" || SceneManager.GetActiveScene().name == "DeliveryGame") && Tutorial.tutorial == true)
+        {
+            startButton.SetActive(true);
         }
     }
 }

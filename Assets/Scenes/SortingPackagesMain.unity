@@ -302,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &123697225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1113,6 +1113,7 @@ MonoBehaviour:
   characterName: {fileID: 561927567}
   dialogueArea: {fileID: 436959224}
   dialogueUI: {fileID: 250388285}
+  startButton: {fileID: 1086603678}
   isDialogueActive: 0
   typingSpeed: 0.01
 --- !u!114 &250388288

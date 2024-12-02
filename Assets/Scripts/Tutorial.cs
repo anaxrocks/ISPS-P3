@@ -15,7 +15,6 @@ public class Tutorial : MonoBehaviour
     {
         if (tutorial == true)
         {
-            StartButton.SetActive(true);
             Instructions.SetActive(true);
         }
     }

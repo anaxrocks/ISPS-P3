@@ -549,6 +549,7 @@ MonoBehaviour:
   characterName: {fileID: 2056999181}
   dialogueArea: {fileID: 24272302}
   dialogueUI: {fileID: 324580451}
+  startButton: {fileID: 634624735}
   isDialogueActive: 0
   typingSpeed: 0.01
 --- !u!114 &324580454
