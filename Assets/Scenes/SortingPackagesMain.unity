@@ -424,7 +424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6d880a8b605494864ba878e7ded2ea7e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 03f62c2b185a54f7398f80e6abdeb415, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -522,8 +522,8 @@ MonoBehaviour:
   - {fileID: 1921775364}
   - {fileID: 2507670}
   scoreText: {fileID: 1545459290}
-  summaryText: {fileID: 507768477}
   summaryCanvas: {fileID: 123697224}
+  summaryText: {fileID: 507768477}
   drop1: 0
   drop2: 0
   drop3: 0
