@@ -24,6 +24,7 @@ public class PackageShooter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && shootCountdown <=0)
         {
             ShootPackage();
+            SoundManager.Instance.PlaySound2D("Shoot");
         }
     }
 

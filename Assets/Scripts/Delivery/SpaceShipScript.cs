@@ -80,6 +80,7 @@ public class SpaceShipScript : MonoBehaviour
         /* StartCoroutine is a special type of method that allows you to 
         execute code over multiple frames, like performing animations. */
         StartCoroutine(FlashRedCoroutine(duration));
+        SoundManager.Instance.PlaySound2D("Crash");
     }
 
     /* Helper function for FlashRed. */

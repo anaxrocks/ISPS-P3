@@ -40,6 +40,7 @@ public class PackageMovement : MonoBehaviour
             receiver.GetComponent<SpriteRenderer>().sprite = receivedSprite;
             ScoreManager.instance.AddScore(1); // Award 10 points per hit
             ScoreManager.instance.PackageDestroyed();
+            SoundManager.Instance.PlaySound2D("Pop");
             // Destroy the package
             Destroy(gameObject);
         }
