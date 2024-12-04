@@ -145,7 +145,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  receivedSprite: {fileID: 21300000, guid: 46970e3cc318d43f1a973188f0e71722, type: 3}
+  receiverSprites:
+  - {fileID: 21300000, guid: 46970e3cc318d43f1a973188f0e71722, type: 3}
+  - {fileID: 21300000, guid: a390caffaaea543ccb7a26e0e6a43677, type: 3}
+  - {fileID: 21300000, guid: 46970e3cc318d43f1a973188f0e71722, type: 3}
+  - {fileID: 21300000, guid: cbe14a5af01b64d879dd11516cbc7bbf, type: 3}
+  - {fileID: 21300000, guid: 2791fae15f51946ec876a079cb1422ed, type: 3}
 --- !u!50 &1088842585274140795
 Rigidbody2D:
   serializedVersion: 4

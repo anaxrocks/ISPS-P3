@@ -11,11 +11,14 @@ public class SatelliteMovement : MonoBehaviour
     private float time;
     private Vector3 spawnPos;
     private float speed;
+    public Sprite[] receivers;
+
     void Start()
     {
         time = 0;
         spawnPos = transform.position;
         speed = ScoreManager.instance.satellite_speed;
+        GetComponent<SpriteRenderer>().sprite = receivers[PlanetSelection.selectedPlanet];
     }
 
     // Update is called once per frame

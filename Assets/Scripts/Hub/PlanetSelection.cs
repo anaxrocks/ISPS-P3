@@ -155,7 +155,7 @@ public class PlanetSelection : MonoBehaviour
 
     public void SetPlanet4()
     {
-        selectedPlanet = 3;
+        selectedPlanet = 4;
         packageQuota = 5000;
         fuelCost = 200000;
         shippingCharge = 500;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PackageMovement : MonoBehaviour
 {
     public float speed = 5f; // Movement speed of the package
-    public Sprite receivedSprite;
+    public Sprite[] receiverSprites;
     private Camera mainCamera;
     private Vector2 screenBounds;
 
@@ -37,7 +37,7 @@ public class PackageMovement : MonoBehaviour
         {
             // Add score via ScoreManager
             GameObject receiver = other.gameObject;
-            receiver.GetComponent<SpriteRenderer>().sprite = receivedSprite;
+            receiver.GetComponent<SpriteRenderer>().sprite = receiverSprites[PlanetSelection.selectedPlanet];
             ScoreManager.instance.AddScore(1); // Award 10 points per hit
             ScoreManager.instance.PackageDestroyed();
             SoundManager.Instance.PlaySound2D("Pop");
