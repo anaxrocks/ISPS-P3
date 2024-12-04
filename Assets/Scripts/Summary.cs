@@ -25,7 +25,7 @@ public class Summary : MonoBehaviour
         if (Currency.repHome == 5){
             earnings = earnings * 2;
         }
-        totalprofit = (Currency.pDelivered * PlanetSelection.shippingCharge) - PlanetSelection.fuelCost;
+        totalprofit = earnings - PlanetSelection.fuelCost;
         Currency.money += totalprofit;
 
         // Update all the UI elements

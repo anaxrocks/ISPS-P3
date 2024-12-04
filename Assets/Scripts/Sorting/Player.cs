@@ -6,7 +6,8 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public Camera cam;
-    private float mouseX;
+    public float moveSpeed = 5f; // Speed of player movement
+    private float horizontalInput;
 
     private Queue packageStack = new Queue();
     public Transform[] stackSlots; //visual stack above player
@@ -59,29 +60,33 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Track mouse movement
-        Vector3 mouse = cam.ScreenToWorldPoint(Input.mousePosition);
-        mouseX = mouse.x;
-
-        // Player can't drag off screen
-        if (mouseX < -9.5f) {
-            mouseX = -9.5f;
-        }
-
-        if (mouseX > 9.5f) {
-            mouseX = 9.5f;
-        }
-        //character flips according to mouse movement
-        if (mouseX > transform.position.x && !facingRight)
+        
+        // Detect key input for movement
+        if (Input.GetKey(KeyCode.A))
         {
-            flip();
-        }
-        else if (mouseX < transform.position.x && facingRight)
-        {
-            flip();
-        }
+            // Move left
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
 
-        transform.position = new Vector3(mouseX, transform.position.y, transform.position.z);
+            // Flip character if facing right
+            if (facingRight)
+            {
+                Flip();
+            }
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            // Move right
+            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+
+            // Flip character if facing left
+            if (!facingRight)
+            {
+                Flip();
+            }
+        }
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -7.8f, 7.8f);
+        transform.position = clampedPosition;
 
         //Decrease bin countdown if above zero, or open bins (visually)
         for (int i = 0; i < 4; i++) 
@@ -101,7 +106,7 @@ public class Player : MonoBehaviour
         }
         if (drop1)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
+            if (Input.GetKeyDown(KeyCode.Space) && packageStack.Count > 0
                 && binCountdown[0] <=0)
             {
                 if (packageStack.Peek().Equals(1))
@@ -120,7 +125,7 @@ public class Player : MonoBehaviour
 
         if (drop2)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
+            if (Input.GetKeyDown(KeyCode.Space) && packageStack.Count > 0
                 && binCountdown[1] <=0)
             {
                 if (packageStack.Peek().Equals(2))
@@ -139,7 +144,7 @@ public class Player : MonoBehaviour
 
         if (drop3)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
+            if (Input.GetKeyDown(KeyCode.Space) && packageStack.Count > 0
                 && binCountdown[2] <=0)
             {
                 if (packageStack.Peek().Equals(3))
@@ -158,7 +163,7 @@ public class Player : MonoBehaviour
 
         if (drop4)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0
+            if (Input.GetKeyDown(KeyCode.Space) && packageStack.Count > 0
                 && binCountdown[3] <=0)
             {
                 if (packageStack.Peek().Equals(4))
@@ -177,7 +182,7 @@ public class Player : MonoBehaviour
         //Can discard any package or rock
         if (discard)
         {
-            if (Input.GetMouseButtonDown(0) && packageStack.Count > 0)
+            if (Input.GetKeyDown(KeyCode.Space) && packageStack.Count > 0)
             {
                 if (packageStack.Count != 0)
                 {
@@ -242,8 +247,7 @@ public class Player : MonoBehaviour
         bins[i].GetComponent<SpriteRenderer>().sprite = binSprites[i];
     }
 
-    /* Flips character */
-    void flip()
+    void Flip()
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
