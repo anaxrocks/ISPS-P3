@@ -24,6 +24,9 @@ public class ScoreManager : MonoBehaviour
     public int packagesLeft; // Total packages to be delivered
     private int hp; // Player health points
     public int activePackages;
+    public float acceleration; //time speed up, used for spawner and stuffs.
+    public float satellite_speed;
+    public float rock_speed;
 
     void Awake()
     {
@@ -50,6 +53,9 @@ public class ScoreManager : MonoBehaviour
             TriggerGameOver();
         }
         Time.timeScale = 1f;
+        acceleration = 0.01f;
+        satellite_speed = 1;
+        rock_speed = 10;
     }
 
     void Start()
@@ -63,6 +69,11 @@ public class ScoreManager : MonoBehaviour
         }
         UpdateUI(); // Initialize UI with default values
         activePackages = 0;
+    }
+    void Update()
+    {
+        satellite_speed += Time.deltaTime * acceleration;
+        rock_speed += Time.deltaTime * acceleration;
     }
 
     public void AddScore(int points)

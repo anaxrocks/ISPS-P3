@@ -10,7 +10,7 @@ public class BeachBallMovement : MonoBehaviour
     public float deadZone = -45;
     void Start()
     {
-        
+        moveSpeed = ScoreManager.instance.rock_speed;
     }
 
     // Update is called once per frame
