@@ -493,6 +493,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 906738788}
+  moveSpeed: 5
+  maxMoveSpeed: 10
+  speedIncrement: 0.2
+  speedUpInterval: 10
   stackSlots:
   - {fileID: 230587700}
   - {fileID: 237408360}
@@ -3386,8 +3390,11 @@ MonoBehaviour:
   - {fileID: 5386925608013144879, guid: 36a53a63825274399949be8d0b15d90b, type: 3}
   - {fileID: 3805924163343419818, guid: f602f39883486416181cd98bc8a3ca62, type: 3}
   - {fileID: 1934921127036906178, guid: 5bcae060d08ea40f0930574533e02bca, type: 3}
-  timetoSpawn: 0.8
+  timetoSpawn: 2
   spawnCountdown: 0
+  speedupFactor: 0.95
+  minSpawnTime: 0.25
+  speedupInterval: 10
 --- !u!4 &1207204680
 Transform:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class Summary : MonoBehaviour
 
         // Update all the UI elements
         if (moneyMade != null){
-            moneyMade.text = "Money Earned: $" + Currency.pDelivered.ToString();}
+            moneyMade.text = "Money Earned: $" + earnings.ToString();}
 
         if (packagesSorted != null){
             packagesSorted.text = "Packages Sorted: " + Currency.pSorted.ToString();}

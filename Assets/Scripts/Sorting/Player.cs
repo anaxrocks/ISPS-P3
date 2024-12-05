@@ -6,7 +6,11 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public Camera cam;
-    public float moveSpeed = 5f; // Speed of player movement
+    public float moveSpeed = 5f; // Initial speed of player movement
+    public float maxMoveSpeed = 10f; // Maximum player movement speed
+    public float speedIncrement = 0.1f; // Amount to increase speed
+    public float speedUpInterval = 10f; // Time interval to increase speed
+    private float speedUpTimer; // Timer to track speed-up intervals
     private float horizontalInput;
 
     private Queue packageStack = new Queue();
@@ -87,6 +91,17 @@ public class Player : MonoBehaviour
         Vector3 clampedPosition = transform.position;
         clampedPosition.x = Mathf.Clamp(clampedPosition.x, -7.8f, 7.8f);
         transform.position = clampedPosition;
+
+        // Speed-Up Timer
+        speedUpTimer += Time.deltaTime;
+        if (speedUpTimer >= speedUpInterval)
+        {
+            // Increase player movement speed
+            moveSpeed = Mathf.Clamp(moveSpeed + speedIncrement, 0, maxMoveSpeed);
+
+            // Reset timer
+            speedUpTimer = 0f;
+        }
 
         //Decrease bin countdown if above zero, or open bins (visually)
         for (int i = 0; i < 4; i++) 
