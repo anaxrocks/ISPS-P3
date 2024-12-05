@@ -29,7 +29,7 @@ public class Upgrades : MonoBehaviour
     public static int addLasersCounter;
 
     // Route Upgrades
-    public static int moreMoneyPP; // more $ per package
+    public static int moreMoneyPP = 1; // more $ per package
     public static int moreMoneyPPCounter;
     public static int morePackagesDelivered;
     public static int morePackagesDeliveredCounter;
@@ -191,7 +191,7 @@ public class Upgrades : MonoBehaviour
             Currency.money -= increaseShootingSpeedCost;
             increaseShootingSpeedCost *= 2;
             increaseShootingSpeedCounter++;
-            // Change increaseShootingSpeed value
+            increaseShootingSpeed++;
             UpdateUI();
         }
     }
@@ -204,6 +204,7 @@ public class Upgrades : MonoBehaviour
             moreHealthCost *= 2;
             moreHealthCounter++;
             // Change moreHealth value
+            moreHealth++;
             UpdateUI();
         }
     }
@@ -227,7 +228,8 @@ public class Upgrades : MonoBehaviour
             Currency.money -= moreMoneyPPCost;
             moreMoneyPPCost *= 2;
             moreMoneyPPCounter++;
-            // Change moremnoneypp value
+            // MoreMoneyPP is used as a small multiplier. 
+            moreMoneyPP++;
             UpdateUI();
         }
     }

@@ -21,7 +21,8 @@ public class Summary : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        earnings = Currency.pDelivered * PlanetSelection.shippingCharge;
+        //MIGHT NEED TO CHANGE moreMoneyPP value. Right now it acts as a multiplier. 
+        earnings = Currency.pDelivered * PlanetSelection.shippingCharge * Upgrades.moreMoneyPP;
         if (Currency.repHome == 5){
             earnings = earnings * 2;
         }

@@ -52,7 +52,9 @@ public class ScoreManager : MonoBehaviour
         {
             TriggerGameOver();
         }
+        //unpauses game
         Time.timeScale = 1f;
+
         acceleration = 0.01f;
         satellite_speed = 1;
         rock_speed = 10;
