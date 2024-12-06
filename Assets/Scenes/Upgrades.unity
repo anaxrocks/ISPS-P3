@@ -6022,6 +6022,7 @@ MonoBehaviour:
   moreMoneyPPCostText: {fileID: 44596771}
   morePackagesDeliveredCostText: {fileID: 532856948}
   researchCostText: {fileID: 2050394431}
+  addLasersText: {fileID: 1932337931}
 --- !u!1 &1710570983
 GameObject:
   m_ObjectHideFlags: 0

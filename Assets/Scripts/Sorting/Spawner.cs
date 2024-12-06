@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
         if (spawnCountdown <= 0)
         {
             spawnCountdown = timetoSpawn;
-            int randomPackage = Random.Range(1, packages.Length + Upgrades.lessGarbage);
+            int randomPackage = Random.Range(1, packages.Length);
             if (randomPackage >= packages.Length)
             {
                 randomPackage = 0; // rock

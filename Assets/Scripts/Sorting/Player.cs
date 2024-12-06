@@ -244,13 +244,13 @@ public class Player : MonoBehaviour
     private void PopFromQueue()
     {
         int size = packageStack.Count;
-        stackSlots[0].GetComponent<SpriteRenderer>().sprite = null;
+        packageStack.Dequeue();
         for (int i = 0; i < packageStack.Count; i++)
         {
             stackSlots[i].GetComponent<SpriteRenderer>().sprite = 
                 stackSlots[i+1].GetComponent<SpriteRenderer>().sprite;
         }
-        packageStack.Dequeue();
+        stackSlots[size-1].GetComponent<SpriteRenderer>().sprite = null;
     }
     /* Closes the bin for a missort. Bins are 1-indexed. */
     private void closeBin(int i)
