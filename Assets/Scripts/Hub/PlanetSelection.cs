@@ -22,6 +22,7 @@ public class PlanetSelection : MonoBehaviour
     public static int fuelCost;
     public static int shippingCharge;
     private int estimatedEarnings;
+    public GameObject planetCanvas;
 
 
     void Start()
@@ -76,10 +77,11 @@ public class PlanetSelection : MonoBehaviour
                 ResetButtonValue(currentSelectedButton);
                 currentSelectedButton = null;
 
-                packageQuotaText.text = "";
-                fuelCostText.text = "";
-                shippingChargeText.text = "";
-                estimatedEarningsText.text = "";
+                // packageQuotaText.text = "";
+                // fuelCostText.text = "";
+                // shippingChargeText.text = "";
+                // estimatedEarningsText.text = "";
+                planetCanvas.SetActive(false);
 
                 // Disable the Start button
                 startButton.interactable = false;
@@ -165,10 +167,15 @@ public class PlanetSelection : MonoBehaviour
 
     public void UpdateGoal()
     {
-        packageQuotaText.text = "Package Quota: " + packageQuota.ToString();
-        fuelCostText.text = "Fuel Cost: $" + fuelCost.ToString();
-        shippingChargeText.text = "Shipping Charge: $" + shippingCharge.ToString() + " per package";
-        estimatedEarningsText.text = "Estimated Earnings: $" + estimatedEarnings.ToString();
+        planetCanvas.SetActive(true);
+        packageQuotaText.text = "Package Quota\n" + packageQuota.ToString();
+        fuelCostText.text = "Fuel Cost\n$" + fuelCost.ToString();
+        shippingChargeText.text = "$ per Package\n$" + shippingCharge.ToString();
+        if (Upgrades.moreMoneyPP > 1){
+            shippingChargeText.text = "$ per Package\n$" + shippingCharge.ToString()
+            + Upgrades.moreMoneyPPCounter.ToString();
+        }
+        estimatedEarningsText.text = "Estimated Earnings\n$" + estimatedEarnings.ToString();
     }
 
     public void StartDay()

@@ -10,12 +10,17 @@ public class Spawner : MonoBehaviour
     public float speedupFactor = 0.95f; // Factor to reduce spawn time
     public float minSpawnTime; // Minimum spawn interval to prevent it from becoming too fast
     public float speedupInterval = 10f; // Time between each speedup
+    
+    public float rockCountdown;
+    public float timetoRock;
+    public int rock = 0;
 
     private float timeSinceLastSpeedup = 0f; // Track elapsed time since last speedup
 
     void Start()
     {
         spawnCountdown = timetoSpawn;
+        rockCountdown = timetoRock/Upgrades.lessGarbage;
     }
 
     void Update()
@@ -30,8 +35,13 @@ public class Spawner : MonoBehaviour
             {
                 randomPackage = 0; // rock
             }
-            Vector3 randomSpawnPosition = new Vector3(Random.Range(-8, 8), Random.Range(4, 8), 0);
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-8, 8), Random.Range(5, 9), 0);
             Instantiate(packages[randomPackage], randomSpawnPosition, Quaternion.identity);
+        }
+        rockCountdown -= Time.deltaTime;
+        if (rockCountdown <= 0 && Upgrades.lessGarbageCounter < 5)
+        {
+            spawnRock();
         }
 
         // Gradually speed up the spawning
@@ -41,5 +51,12 @@ public class Spawner : MonoBehaviour
             timeSinceLastSpeedup = 0f; // Reset speedup timer
             timetoSpawn = Mathf.Max(timetoSpawn * speedupFactor, minSpawnTime); // Decrease spawn time
         }
+    }
+
+    void spawnRock()
+    {
+        rockCountdown = timetoSpawn/Upgrades.lessGarbage;
+        Vector3 randomSpawnPosition = new Vector3(Random.Range(-8, 8), Random.Range(5, 9), 0);
+        Instantiate(packages[rock], randomSpawnPosition, Quaternion.identity);
     }
 }

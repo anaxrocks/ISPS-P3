@@ -250,7 +250,7 @@ public class Player : MonoBehaviour
             stackSlots[i].GetComponent<SpriteRenderer>().sprite = 
                 stackSlots[i+1].GetComponent<SpriteRenderer>().sprite;
         }
-        stackSlots[size-1].GetComponent<SpriteRenderer>().sprite = null;
+        stackSlots[size -1].GetComponent<SpriteRenderer>().sprite = null;
     }
     /* Closes the bin for a missort. Bins are 1-indexed. */
     private void closeBin(int i)
