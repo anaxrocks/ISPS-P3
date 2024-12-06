@@ -1142,6 +1142,9 @@ MonoBehaviour:
   - groupID: Button
     clips:
     - {fileID: 8300000, guid: 55cbd8aed869f42d7bb30f5791b32876, type: 3}
+  - groupID: Rock Blast
+    clips:
+    - {fileID: 8300000, guid: 32bf3e52c297946dbad091f006183952, type: 3}
 --- !u!4 &1191378323
 Transform:
   m_ObjectHideFlags: 0

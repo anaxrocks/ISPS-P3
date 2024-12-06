@@ -128,6 +128,7 @@ public class Player : MonoBehaviour
                 {
                     p1 += 1;
                     print("package 1 added to bin");
+                    SoundManager.Instance.PlaySound2D("Pop");
                 }
                 else 
                 {
@@ -147,6 +148,7 @@ public class Player : MonoBehaviour
                 {
                     p2 += 1;
                     print("package 2 added to bin");
+                    SoundManager.Instance.PlaySound2D("Pop");
                 }
                 else 
                 {
@@ -166,6 +168,7 @@ public class Player : MonoBehaviour
                 {
                     p3 += 1;
                     print("package 3 added to bin");
+                    SoundManager.Instance.PlaySound2D("Pop");
                 }
                 else 
                 {
@@ -185,6 +188,7 @@ public class Player : MonoBehaviour
                 {
                     p4 += 1;
                     print("package 4 added to bin");
+                    SoundManager.Instance.PlaySound2D("Pop");
                 }
                 else 
                 {
@@ -203,6 +207,7 @@ public class Player : MonoBehaviour
                 {
                     PopFromQueue();
                     print("discarded package");
+                    SoundManager.Instance.PlaySound2D("Pop");
                 }
             }
         }
@@ -254,6 +259,7 @@ public class Player : MonoBehaviour
         //5 is the index for a closed package
         bins[i-1].GetComponent<SpriteRenderer>().sprite = binClosed[i-1];
         binCountdown[i-1] = timetoReset;
+        SoundManager.Instance.PlaySound2D("Missort");
     }
     
     /* Call this to open the bin again (visually). 0-indexed. */
@@ -334,6 +340,7 @@ public class Player : MonoBehaviour
                 AddToStack(0);
                 containsRock = true;
                 print(packageStack.Peek());
+                SoundManager.Instance.PlaySound2D("Rock Falling");
             }
         }
 

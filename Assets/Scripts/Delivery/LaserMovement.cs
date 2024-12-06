@@ -35,6 +35,7 @@ public class LaserMovement : MonoBehaviour
         {
             // Destroy the package
             Destroy(other.gameObject);
+            SoundManager.Instance.PlaySound2D("Rock Blast");
         }
     }
     

@@ -31,6 +31,7 @@ public class LaserShooter : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J) && shootCountdownLaser <= 0 && Upgrades.addLasersCounter > 0)
         {
             ShootLaser();
+            SoundManager.Instance.PlaySound2D("Laser");
         }
     }
 
