@@ -184,7 +184,7 @@ public class Upgrades : MonoBehaviour
             Currency.money -= lessGarbageCost;
             lessGarbageCost *= 2;
             lessGarbageCounter++;
-            lessGarbage -= 0.2f;
+            lessGarbage -= 0.4f;
             UpdateUI();
             SoundManager.Instance.PlaySound2D("Cha ching");
         }
