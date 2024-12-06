@@ -85,7 +85,7 @@ public class Upgrades : MonoBehaviour
             handLimitCostText.text = "Max";
         } else
         {
-            handLimitCostText.text = "Buy $" + handLimitCost.ToString();
+            handLimitCostText.text = "$" + handLimitCost.ToString();
         }
 
         lessGarbageUpgradeBar.sprite = upgradeSprites[lessGarbageCounter];
@@ -95,7 +95,7 @@ public class Upgrades : MonoBehaviour
         }
         else
         {
-            lessGarbageCostText.text = "Buy $" + lessGarbageCost.ToString();
+            lessGarbageCostText.text = "$" + lessGarbageCost.ToString();
         }
 
         increaseShootingSpeedUpgradeBar.sprite = upgradeSprites[increaseShootingSpeedCounter];
@@ -105,7 +105,7 @@ public class Upgrades : MonoBehaviour
         }
         else
         {
-            increaseShootingSpeedCostText.text = "Buy $" + increaseShootingSpeedCost.ToString();
+            increaseShootingSpeedCostText.text = "$" + increaseShootingSpeedCost.ToString();
         }
 
         moreHealthUpgradeBar.sprite = upgradeSprites[moreHealthCounter];
@@ -115,7 +115,7 @@ public class Upgrades : MonoBehaviour
         }
         else
         {
-            moreHealthCostText.text = "Buy $" + moreHealthCost.ToString();
+            moreHealthCostText.text = "$" + moreHealthCost.ToString();
         }
 
         addLasersUpgradeBar.sprite = upgradeSprites[addLasersCounter];
@@ -125,7 +125,7 @@ public class Upgrades : MonoBehaviour
         }
         else
         {
-            addLasersCostText.text = "Buy $" + addLasersCost.ToString();
+            addLasersCostText.text = "$" + addLasersCost.ToString();
         }
 
         moreMoneyPPUpgradeBar.sprite = upgradeSprites[moreMoneyPPCounter];
@@ -135,7 +135,7 @@ public class Upgrades : MonoBehaviour
         }
         else
         {
-            moreMoneyPPCostText.text = "Buy $" + moreMoneyPPCost.ToString();
+            moreMoneyPPCostText.text = "$" + moreMoneyPPCost.ToString();
         }
 
         morePackagesDeliveredUpgradeBar.sprite = upgradeSprites[morePackagesDeliveredCounter];
@@ -145,7 +145,7 @@ public class Upgrades : MonoBehaviour
         }
         else
         {
-            morePackagesDeliveredCostText.text = "Buy $" + morePackagesDeliveredCost.ToString();
+            morePackagesDeliveredCostText.text = "$" + morePackagesDeliveredCost.ToString();
         }
 
         researchUpgradeBar.sprite = upgradeSprites[researchCounter];
@@ -155,7 +155,7 @@ public class Upgrades : MonoBehaviour
         }
         else
         {
-            researchCostText.text = "Buy $" + researchCost.ToString();
+            researchCostText.text = "$" + researchCost.ToString();
         }
     }
 
@@ -168,6 +168,7 @@ public class Upgrades : MonoBehaviour
             handLimitCounter++;
             handLimit++;
             UpdateUI();
+            SoundManager.Instance.PlaySound2D("Cha ching");
         }
     }
 
@@ -181,6 +182,7 @@ public class Upgrades : MonoBehaviour
             lessGarbage--;
             // Change lessGarbage value
             UpdateUI();
+            SoundManager.Instance.PlaySound2D("Cha ching");
         }
     }
 
@@ -193,6 +195,7 @@ public class Upgrades : MonoBehaviour
             increaseShootingSpeedCounter++;
             increaseShootingSpeed++;
             UpdateUI();
+            SoundManager.Instance.PlaySound2D("Cha ching");
         }
     }
 
@@ -206,6 +209,7 @@ public class Upgrades : MonoBehaviour
             // Change moreHealth value
             moreHealth++;
             UpdateUI();
+            SoundManager.Instance.PlaySound2D("Cha ching");
         }
     }
 
@@ -218,6 +222,7 @@ public class Upgrades : MonoBehaviour
             addLasersCounter++;
             // Change addlasers value
             UpdateUI();
+            SoundManager.Instance.PlaySound2D("Cha ching");
         }
     }
 
@@ -231,6 +236,7 @@ public class Upgrades : MonoBehaviour
             // MoreMoneyPP is used as a small multiplier. 
             moreMoneyPP++;
             UpdateUI();
+            SoundManager.Instance.PlaySound2D("Cha ching");
         }
     }
 
@@ -243,6 +249,7 @@ public class Upgrades : MonoBehaviour
             morePackagesDeliveredCounter++;
             // Change morepackagesdelivered value
             UpdateUI();
+            SoundManager.Instance.PlaySound2D("Cha ching");
         }
     }
 
@@ -262,13 +269,18 @@ public class Upgrades : MonoBehaviour
                 print("planet unlocked");
                 // change research value
                 UpdateUI();
+                SoundManager.Instance.PlaySound2D("Success");
                 print("1");
-            } else
+            }
+            else
             {
                 print("0");
                 researchTries++;
+                if (researchTries < 3)
+                {
+                    SoundManager.Instance.PlaySound2D("Lose");
+                }
             }
-
             // 3 failed tries = 1 success
             if (researchTries == 3)
             {
@@ -278,6 +290,7 @@ public class Upgrades : MonoBehaviour
                 print("planet unlocked");
                 // change research value
                 UpdateUI();
+                SoundManager.Instance.PlaySound2D("Success");
             }
         }
     }

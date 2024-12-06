@@ -35,6 +35,7 @@ public class Package : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            
             Destroy(this.gameObject);
         }
         if (other.gameObject.tag == "Ground")
