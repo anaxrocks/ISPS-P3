@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonSound : MonoBehaviour
+public class ButtonScript : MonoBehaviour
 {
     public void PlayButtonSound()
     {

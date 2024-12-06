@@ -17,7 +17,7 @@ public class Upgrades : MonoBehaviour
     // Sorting Upgrades
     public static int handLimit = 1;
     public static int handLimitCounter;
-    public static float lessGarbage = 2.0f;
+    public static int lessGarbage = 5;
     public static int lessGarbageCounter;
 
     // Delivery Upgrades
@@ -68,7 +68,6 @@ public class Upgrades : MonoBehaviour
     public TextMeshProUGUI morePackagesDeliveredCostText;
     public static int researchCost = 5;
     public TextMeshProUGUI researchCostText;
-    public TextMeshProUGUI addLasersText;
 
     void Start()
     {
@@ -158,10 +157,6 @@ public class Upgrades : MonoBehaviour
         {
             researchCostText.text = "$" + researchCost.ToString();
         }
-        if (addLasersCounter > 1)
-        {
-            addLasersText.text = "Increase laser shooting speed";
-        }
     }
 
     public void BuyHandLimitUpgrade()
@@ -184,7 +179,8 @@ public class Upgrades : MonoBehaviour
             Currency.money -= lessGarbageCost;
             lessGarbageCost *= 2;
             lessGarbageCounter++;
-            lessGarbage -= 0.2f;
+            lessGarbage--;
+            // Change lessGarbage value
             UpdateUI();
             SoundManager.Instance.PlaySound2D("Cha ching");
         }
