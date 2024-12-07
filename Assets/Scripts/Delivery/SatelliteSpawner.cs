@@ -5,6 +5,7 @@ using UnityEngine;
 public class SatelliteSpawner : MonoBehaviour
 {
     public GameObject SatellitePrefab;
+    public static SatelliteSpawner instance;
     public float spawnRate = 3;
 
     private float timer = 0;
@@ -16,15 +17,16 @@ public class SatelliteSpawner : MonoBehaviour
 
     public float minSpawnRate = 0.5f;
 
+    void Awake() 
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         mainCamera = Camera.main;
-        if (mainCamera == null)
-        {
-            Debug.LogError("Main Camera not found! Ensure the camera is tagged as 'MainCamera'.");
-            return;
-        }
-
         // Calculate the camera boundaries
         UpdateCameraEdges();
         SpawnSatellite();

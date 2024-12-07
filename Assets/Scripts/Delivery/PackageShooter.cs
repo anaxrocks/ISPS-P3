@@ -12,14 +12,20 @@ public class PackageShooter : MonoBehaviour
     public float spawnOffset = 1f; // Distance in front of the spaceship
 
     public float shootSpeed = 5f;    // Speed of the package
+    public float minShootSpeed;
     public float timeForShootReset, shootCountdown;
     void Start() 
     {
         timeForShootReset = 2.0f / Upgrades.increaseShootingSpeed;
+        minShootSpeed = SatelliteSpawner.instance.minSpawnRate/ Upgrades.increaseShootingSpeed;
     }
 
     void Update()
     {
+        if (timeForShootReset > minShootSpeed)
+        { 
+            timeForShootReset -= Time.deltaTime * ScoreManager.instance.acceleration;
+        }
         shootCountdown -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space) && shootCountdown <=0)
         {
