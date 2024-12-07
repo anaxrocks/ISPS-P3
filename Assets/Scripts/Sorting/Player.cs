@@ -50,6 +50,16 @@ public class Player : MonoBehaviour
     private float[] binCountdown = new float[4];
 
 
+
+    public ReusableFloatingPoint floatingPoint; // Assign the TextMeshPro with the script in the Inspector
+    public Transform playerTransform;          // Assign the player GameObject's Transform in the Inspector
+
+    public void CorrectPackageSorted()
+    {
+        Vector3 offset = new Vector3(0, 1.5f, 0); // Adjust the offset as needed
+        floatingPoint.ShowPopup(playerTransform.position, offset, "+1", Color.green);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,6 +139,8 @@ public class Player : MonoBehaviour
                     p1 += 1;
                     print("package 1 added to bin");
                     SoundManager.Instance.PlaySound2D("Pop");
+                    //floatingPoint.transform.position = transform.position + offset;
+                    CorrectPackageSorted();
                 }
                 else 
                 {
@@ -149,6 +161,7 @@ public class Player : MonoBehaviour
                     p2 += 1;
                     print("package 2 added to bin");
                     SoundManager.Instance.PlaySound2D("Pop");
+                    CorrectPackageSorted();
                 }
                 else 
                 {
@@ -169,6 +182,7 @@ public class Player : MonoBehaviour
                     p3 += 1;
                     print("package 3 added to bin");
                     SoundManager.Instance.PlaySound2D("Pop");
+                    CorrectPackageSorted();
                 }
                 else 
                 {
@@ -189,6 +203,7 @@ public class Player : MonoBehaviour
                     p4 += 1;
                     print("package 4 added to bin");
                     SoundManager.Instance.PlaySound2D("Pop");
+                    CorrectPackageSorted();
                 }
                 else 
                 {
