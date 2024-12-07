@@ -55,7 +55,7 @@ public class ScoreManager : MonoBehaviour
         //unpauses game
         Time.timeScale = 1f;
 
-        acceleration = 0.01f;
+        acceleration = 0.05f;
         satellite_speed = 1;
         rock_speed = 10;
     }
