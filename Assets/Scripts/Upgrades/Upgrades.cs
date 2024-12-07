@@ -259,9 +259,10 @@ public class Upgrades : MonoBehaviour
         {
             Currency.money -= researchCost;
             UpdateUI();
+            SoundManager.Instance.PlaySound2D("Whoosh");
 
             // 50/50 chance to unlock piece of planet
-            if (Random.Range(0, 2) == 1)
+            if (Random.Range(0, 4) == 1)
             {
                 researchTries = 0;
                 researchCounter++;
@@ -269,7 +270,7 @@ public class Upgrades : MonoBehaviour
                 print("planet unlocked");
                 // change research value
                 UpdateUI();
-                SoundManager.Instance.PlaySound2D("Success");
+                StartCoroutine(PlayAudioWithDelay("Success", 2f));
                 Research.instance.playSuccess();
                 print("1");
             }
@@ -277,14 +278,14 @@ public class Upgrades : MonoBehaviour
             {
                 print("0");
                 researchTries++;
-                if (researchTries < 3)
+                if (researchTries < 4)
                 {
-                    SoundManager.Instance.PlaySound2D("Lose");
+                    StartCoroutine(PlayAudioWithDelay("Lose", 2f));
                     Research.instance.playFail();
                 }
             }
             // 3 failed tries = 1 success
-            if (researchTries == 3)
+            if (researchTries == 4)
             {
                 researchTries = 0;
                 researchCounter++;
@@ -293,9 +294,15 @@ public class Upgrades : MonoBehaviour
                 // change research value
                 UpdateUI();
                 Research.instance.playSuccess();
-                SoundManager.Instance.PlaySound2D("Success");
+                StartCoroutine(PlayAudioWithDelay("Success", 2f));
             }
         }
+    }
+
+    IEnumerator PlayAudioWithDelay(string audioName, float delay)
+    { 
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        SoundManager.Instance.PlaySound2D(audioName); // Play the audio clip after the delay
     }
 
     public void GoToHub()
