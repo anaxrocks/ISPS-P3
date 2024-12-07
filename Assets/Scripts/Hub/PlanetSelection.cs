@@ -31,12 +31,12 @@ public class PlanetSelection : MonoBehaviour
         // Disable the Start button at the beginning
         startButton.interactable = false;
 
-        for (int i = Upgrades.researchCounter + 1; i < 5; i++)
+        for (int i = Upgrades.researchCounter; i < 5; i++)
         {
             buttons[i].gameObject.SetActive(false);
             repBars[i].gameObject.SetActive(false);
         }
-        for (int j = 0; j < Upgrades.researchCounter + 1; j++)
+        for (int j = 0; j < Upgrades.researchCounter; j++)
         {
             buttons[j].gameObject.SetActive(true);
             repBars[j].gameObject.SetActive(true);

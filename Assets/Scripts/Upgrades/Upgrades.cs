@@ -36,7 +36,7 @@ public class Upgrades : MonoBehaviour
 
     // Research upgrade
     public static int research; // might not need this, use researchCounter instead?
-    public static int researchCounter;
+    public static int researchCounter = 1;
     public static int researchTries;
     public static int researchPieces;
 
