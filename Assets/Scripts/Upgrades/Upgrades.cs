@@ -17,7 +17,7 @@ public class Upgrades : MonoBehaviour
     // Sorting Upgrades
     public static int handLimit = 1;
     public static int handLimitCounter;
-    public static int lessGarbage = 5;
+    public static float lessGarbage = 2.0f;
     public static int lessGarbageCounter;
 
     // Delivery Upgrades
@@ -179,7 +179,7 @@ public class Upgrades : MonoBehaviour
             Currency.money -= lessGarbageCost;
             lessGarbageCost *= 2;
             lessGarbageCounter++;
-            lessGarbage--;
+            lessGarbage -= 0.4f;
             // Change lessGarbage value
             UpdateUI();
             SoundManager.Instance.PlaySound2D("Cha ching");

@@ -14,6 +14,8 @@ public class SatelliteSpawner : MonoBehaviour
     private float topEdge;
     private float bottomEdge;
 
+    public float minSpawnRate = 0.5f;
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -30,6 +32,10 @@ public class SatelliteSpawner : MonoBehaviour
 
     void Update()
     {
+        if (spawnRate > minSpawnRate)
+        { 
+            spawnRate -= Time.deltaTime * ScoreManager.instance.acceleration;
+        }
         if (timer < spawnRate)
         {
             timer += Time.deltaTime;
@@ -48,7 +54,7 @@ public class SatelliteSpawner : MonoBehaviour
         float spawnY = Random.Range(bottomEdge, topEdge);
         Instantiate(
             SatellitePrefab,
-            new Vector3(rightEdge, spawnY, 0),
+            new Vector3(rightEdge + Random.Range(0, 5), spawnY, 0),
             Quaternion.identity
         );
     }

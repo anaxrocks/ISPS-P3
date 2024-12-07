@@ -7,6 +7,8 @@ public class BeachBallSpawner : MonoBehaviour
     public GameObject BeachBallPrefab;
     public float spawnRate = 5;
 
+    public float minSpawnRate = 1;
+
     private float timer = 0;
 
     private Camera mainCamera;
@@ -30,6 +32,10 @@ public class BeachBallSpawner : MonoBehaviour
 
     void Update()
     {
+        if (spawnRate > minSpawnRate)
+        {
+            spawnRate -= Time.deltaTime * ScoreManager.instance.acceleration;
+        }
         if (timer < spawnRate)
         {
             timer += Time.deltaTime;
