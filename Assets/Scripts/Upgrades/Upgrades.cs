@@ -270,6 +270,7 @@ public class Upgrades : MonoBehaviour
                 // change research value
                 UpdateUI();
                 SoundManager.Instance.PlaySound2D("Success");
+                Research.instance.playSuccess();
                 print("1");
             }
             else
@@ -279,6 +280,7 @@ public class Upgrades : MonoBehaviour
                 if (researchTries < 3)
                 {
                     SoundManager.Instance.PlaySound2D("Lose");
+                    Research.instance.playFail();
                 }
             }
             // 3 failed tries = 1 success
@@ -290,6 +292,7 @@ public class Upgrades : MonoBehaviour
                 print("planet unlocked");
                 // change research value
                 UpdateUI();
+                Research.instance.playSuccess();
                 SoundManager.Instance.PlaySound2D("Success");
             }
         }

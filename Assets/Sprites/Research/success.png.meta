@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 306306e854cd046328d33ca5038b0ed6
+guid: a1fc499f10fe5401790843ad8b70522b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fail_research-Sheet_0
+      name: success_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c80b0f726f21474bb3b5a077b456215
-      internalID: -1310374698
+      spriteID: c58fbc544392e414a952dc157048f881
+      internalID: 927451069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_1
+      name: success_1
       rect:
         serializedVersion: 2
         x: 128
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f095d7a11bb6a4042abd9fd5424d5f74
-      internalID: -411420436
+      spriteID: 6902b485adb2242babac02032046d85b
+      internalID: 1584764276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_2
+      name: success_2
       rect:
         serializedVersion: 2
         x: 256
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ffb8a27ecfc74aae82440713a4db627
-      internalID: -1304077234
+      spriteID: 577a1b687cc034aa089e6894d6b0c689
+      internalID: -943152437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_3
+      name: success_3
       rect:
         serializedVersion: 2
         x: 384
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d053776372584eb89b30bd2d4aee11b
-      internalID: -1674471685
+      spriteID: 01977f983e79645368210ea0f47bac84
+      internalID: -1341271918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_4
+      name: success_4
       rect:
         serializedVersion: 2
         x: 512
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2fcf7413c16c4305a68f723ade27cfa
-      internalID: -620792293
+      spriteID: 2d457905155d942368568044196d3cd0
+      internalID: 2099885172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_5
+      name: success_5
       rect:
         serializedVersion: 2
         x: 640
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27a4dbe168c1a4cb0a49c9ddc4b4fa64
-      internalID: -1476978688
+      spriteID: e2b4576bf20f14084850cbe18b870c88
+      internalID: 1101289365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_6
+      name: success_6
       rect:
         serializedVersion: 2
         x: 768
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93215f0bcdce5464c84ae65319815d7e
-      internalID: -1381914044
+      spriteID: ebbcd9b965de64a419e370b54b9ecc1d
+      internalID: -1516074471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_7
+      name: success_7
       rect:
         serializedVersion: 2
         x: 896
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9285f092cd144fa6983e8e413119a91
-      internalID: -1856285237
+      spriteID: bbf567bb356d84e9c8da629c0310d9b8
+      internalID: 585932352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_8
+      name: success_8
       rect:
         serializedVersion: 2
         x: 1024
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2994e1552cde2474198bf224bfb78911
-      internalID: -570251458
+      spriteID: 7a91bbb36b066427594a84aa2f5429b8
+      internalID: -1276239554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_9
+      name: success_9
       rect:
         serializedVersion: 2
         x: 1152
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 999b63fde9c0c4bec80160812d28b891
-      internalID: 550441125
+      spriteID: 81bcd65cab6f94a6bbe741c2ea86908a
+      internalID: -1176910717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_10
+      name: success_10
       rect:
         serializedVersion: 2
         x: 1280
@@ -321,14 +321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f9696ee20d8043fc928b004b9401189
-      internalID: -1780956527
+      spriteID: 22d94db211c49413a9fb1b62580dbce1
+      internalID: -1149788876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_11
+      name: success_11
       rect:
         serializedVersion: 2
         x: 1408
@@ -342,14 +342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0af17a710088248e7940ae0ad4aa6024
-      internalID: 1595452166
+      spriteID: 132d91892f7204f45b2e2e04a06bad61
+      internalID: -1736281484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fail_research-Sheet_12
+      name: success_12
       rect:
         serializedVersion: 2
         x: 1536
@@ -363,8 +363,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c071e84118fc4fa8abf332434be82d4
-      internalID: 1721350007
+      spriteID: d56813ecf2f3f46c698ccf80613ad84b
+      internalID: 239554302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: success_13
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc5a0f0e1995947259467ef610b668a0
+      internalID: -2039842227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: success_14
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9fafe273b5240a0a5aabcfc95a9cfa
+      internalID: -834510065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: success_15
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875d562c66d1f41358666553a0c88172
+      internalID: 2065512205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: success_16
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b11f504ecf0141e8a2148b27e2fe5b5
+      internalID: -1870414930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: success_17
+      rect:
+        serializedVersion: 2
+        x: 2176
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62fbf2093ee6748f6a82913d6e5bf282
+      internalID: 656826661
       vertices: []
       indices: 
       edges: []
@@ -380,19 +485,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fail_research-Sheet_0: -1310374698
-      fail_research-Sheet_1: -411420436
-      fail_research-Sheet_10: -1780956527
-      fail_research-Sheet_11: 1595452166
-      fail_research-Sheet_12: 1721350007
-      fail_research-Sheet_2: -1304077234
-      fail_research-Sheet_3: -1674471685
-      fail_research-Sheet_4: -620792293
-      fail_research-Sheet_5: -1476978688
-      fail_research-Sheet_6: -1381914044
-      fail_research-Sheet_7: -1856285237
-      fail_research-Sheet_8: -570251458
-      fail_research-Sheet_9: 550441125
+      success_0: 927451069
+      success_1: 1584764276
+      success_10: -1149788876
+      success_11: -1736281484
+      success_12: 239554302
+      success_13: -2039842227
+      success_14: -834510065
+      success_15: 2065512205
+      success_16: -1870414930
+      success_17: 656826661
+      success_2: -943152437
+      success_3: -1341271918
+      success_4: 2099885172
+      success_5: 1101289365
+      success_6: -1516074471
+      success_7: 585932352
+      success_8: -1276239554
+      success_9: -1176910717
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
