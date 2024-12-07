@@ -629,7 +629,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 196285491}
   m_Direction: 2
   m_Value: 1.000006
-  m_Size: 0.49429274
+  m_Size: 0.4942927
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1815,8 +1815,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 91657cd0b91ee427abc18c0cbbc014ed, type: 2}
+  m_sharedMaterial: {fileID: 2315613003332607916, guid: 91657cd0b91ee427abc18c0cbbc014ed, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5265,14 +5265,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48809332, g: 0.33891064, b: 0.6037736, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 557f4d4c8cf3f41c284b16292eb34ff1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6402,7 +6402,6 @@ MonoBehaviour:
   moreMoneyPPCostText: {fileID: 44596771}
   morePackagesDeliveredCostText: {fileID: 532856948}
   researchCostText: {fileID: 2050394431}
-  addLasersText: {fileID: 1932337931}
 --- !u!1 &1710570983
 GameObject:
   m_ObjectHideFlags: 0
