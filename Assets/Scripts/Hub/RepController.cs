@@ -6,12 +6,37 @@ public class RepController : MonoBehaviour
     public Sprite[] reputationSprites;   // Array of reputation sprites (assign in Inspector)
     void Start()
     {
-        // Update the sprite to match the initial reputation value
-        UpdateReputationSprite(Currency.repHome);
+        UpdateReputationSprite();
     }
-    // reputation values can only be 0-5
-    public void UpdateReputationSprite(int reputation)
+
+    public void UpdateReputationSprite()
     {
+        int reputation = 0;
+        string tag = gameObject.tag; // Get the tag of the target object
+
+        switch (tag)
+        {
+            case "repHome":
+                reputation = Currency.repHome;
+                break;
+
+            case "repWater":
+                reputation = Currency.rep1;
+                break;
+
+            case "repCowboy":
+                reputation = Currency.rep2;
+                break;
+
+            case "repGarden":
+                reputation = Currency.rep3;
+                break;
+
+            case "repCat":
+                reputation = Currency.rep4;
+                break;
+        }
+
         GetComponent<SpriteRenderer>().sprite = reputationSprites[reputation];
     }
 }

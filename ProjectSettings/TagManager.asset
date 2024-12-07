@@ -17,6 +17,12 @@ TagManager:
   - Rock
   - Satellite
   - BeachBall
+  - SpaceShip
+  - repHome
+  - repWater
+  - repCowboy
+  - repGarden
+  - repCat
   layers:
   - Default
   - TransparentFX

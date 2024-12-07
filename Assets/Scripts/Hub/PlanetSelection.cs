@@ -8,6 +8,7 @@ using TMPro;
 public class PlanetSelection : MonoBehaviour
 {
     public List<Button> buttons; // List of selectable buttons
+    public List<GameObject> repBars; // List of selectable buttons
     public Button startButton; // Reference to the Start button
     private Button currentSelectedButton; // Tracks the currently selected button
 
@@ -33,10 +34,12 @@ public class PlanetSelection : MonoBehaviour
         for (int i = Upgrades.researchCounter + 1; i < 5; i++)
         {
             buttons[i].gameObject.SetActive(false);
+            repBars[i].gameObject.SetActive(false);
         }
         for (int j = 0; j < Upgrades.researchCounter + 1; j++)
         {
             buttons[j].gameObject.SetActive(true);
+            repBars[j].gameObject.SetActive(true);
         }
     }
 

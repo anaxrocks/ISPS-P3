@@ -7,11 +7,11 @@ using TMPro;
 public class Currency : MonoBehaviour
 {
     public static int money;
-    public static int repHome = 3;
-    public static int rep1;
-    public static int rep2;
-    public static int rep3;
-    public static int rep4;
+    public static int repHome = 2;
+    public static int rep1 = 2;
+    public static int rep2 = 2;
+    public static int rep3 = 2;
+    public static int rep4 = 2;
     public TextMeshProUGUI moneyText;
 
     // minigame variables
