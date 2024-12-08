@@ -15,10 +15,13 @@ public class Timer : MonoBehaviour
 
     public float spawnCountdown;
     public GameObject clockLife;
+    private int hasSpedUp;
 
     // Start is called before the first frame update
     void Start()
     {
+        MusicManager.Instance.PlayMusic("sorting slow");
+        hasSpedUp = 0;
         gameTimer = Currency.pSortTimer;
         if (Tutorial.tutorial == true)
         {
@@ -39,6 +42,17 @@ public class Timer : MonoBehaviour
             spawnCountdown = Random.Range(8.0f - PlanetSelection.selectedPlanet, 15.0f);
             Vector3 randomSpawnPosition = new Vector3(Random.Range(-8, 8), Random.Range(5, 9), 0);
             Instantiate(clockLife, randomSpawnPosition, Quaternion.identity);
+        }
+
+        if (gameTimer < 30.0f && hasSpedUp == 0)
+        {
+            MusicManager.Instance.PlayMusic("sorting medium", -0.5f);
+            hasSpedUp++;
+        }
+        if (gameTimer < 10.0f && hasSpedUp == 1)
+        {
+            MusicManager.Instance.PlayMusic("sorting fast", -0.5f);
+            hasSpedUp++;
         }
         //display timer
         if (timerRunning)

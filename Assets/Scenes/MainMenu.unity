@@ -1687,7 +1687,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89cf8e49a3e541f7830c9978eced0b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracks: []
+  tracks:
+  - trackName: main
+    clip: {fileID: 8300000, guid: 4a9bf004b7ebb43a693852479054ba32, type: 3}
+  - trackName: sorting medium
+    clip: {fileID: 8300000, guid: b59f51a5ed327408ba5533af721f3b25, type: 3}
+  - trackName: sorting slow
+    clip: {fileID: 8300000, guid: 5d3155f8303cf4a56a8ed95f4f7ba988, type: 3}
+  - trackName: sorting fast
+    clip: {fileID: 8300000, guid: ffdd1ebcacaaf439ca9c6d2c5180d3a8, type: 3}
 --- !u!114 &2053473096
 MonoBehaviour:
   m_ObjectHideFlags: 0

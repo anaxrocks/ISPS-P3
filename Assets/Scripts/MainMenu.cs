@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public bool playedOnce = false;
+
+    void Start() 
+    {
+        MusicManager.Instance.PlayMusic("main");
+    }
     public void ExitButton()
     {
         Application.Quit();
