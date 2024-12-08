@@ -21,8 +21,8 @@ public class PlanetSelection : MonoBehaviour
     public static int selectedPlanet;
     public static int packageQuota;
     public static int fuelCost;
-    public static int shippingCharge;
-    private int estimatedEarnings;
+    public static float shippingCharge;
+    private float estimatedEarnings;
     public GameObject planetCanvas;
 
 
@@ -123,7 +123,11 @@ public class PlanetSelection : MonoBehaviour
             packageQuota = 10;
         }
         fuelCost = 0;
-        shippingCharge = 1;
+        shippingCharge = 1 * Upgrades.moreMoneyPP;
+        if (Currency.repHome == 5)
+        {
+            shippingCharge *= 2;
+        }
         estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
         UpdateGoal();
     }
@@ -133,7 +137,15 @@ public class PlanetSelection : MonoBehaviour
         selectedPlanet = 1;
         packageQuota = 100;
         fuelCost = 200;
-        shippingCharge = 5;
+        shippingCharge = 5 * Upgrades.moreMoneyPP;
+        if (Currency.rep1 == 5)
+        {
+            shippingCharge *= 2;
+        }
+        if (Currency.rep1 == 0)
+        {
+            shippingCharge /= 2;
+        }
         estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
         UpdateGoal();
     }
@@ -143,7 +155,15 @@ public class PlanetSelection : MonoBehaviour
         selectedPlanet = 2;
         packageQuota = 500;
         fuelCost = 500;
-        shippingCharge = 50;
+        shippingCharge = 50 * Upgrades.moreMoneyPP;
+        if (Currency.rep2 == 5)
+        {
+            shippingCharge *= 2;
+        }
+        if (Currency.rep2 == 0)
+        {
+            shippingCharge /= 2;
+        }
         estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
         UpdateGoal();
     }
@@ -153,7 +173,15 @@ public class PlanetSelection : MonoBehaviour
         selectedPlanet = 3; 
         packageQuota = 1000;
         fuelCost = 10000;
-        shippingCharge = 100;
+        shippingCharge = 100 * Upgrades.moreMoneyPP;
+        if (Currency.rep3 == 5)
+        {
+            shippingCharge *= 2;
+        }
+        if (Currency.rep3 == 0)
+        {
+            shippingCharge /= 2;
+        }
         estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
         UpdateGoal();
     }
@@ -163,7 +191,15 @@ public class PlanetSelection : MonoBehaviour
         selectedPlanet = 4;
         packageQuota = 5000;
         fuelCost = 200000;
-        shippingCharge = 500;
+        shippingCharge = 500 * Upgrades.moreMoneyPP;
+        if (Currency.rep4 == 5)
+        {
+            shippingCharge *= 2;
+        }
+        if (Currency.rep4 == 0)
+        {
+            shippingCharge /= 2;
+        }
         estimatedEarnings = (packageQuota * shippingCharge) - fuelCost;
         UpdateGoal();
     }
@@ -174,10 +210,6 @@ public class PlanetSelection : MonoBehaviour
         packageQuotaText.text = "Package Quota\n" + packageQuota.ToString();
         fuelCostText.text = "Fuel Cost\n$" + fuelCost.ToString();
         shippingChargeText.text = "$ per Package\n$" + shippingCharge.ToString();
-        if (Upgrades.moreMoneyPP > 1){
-            shippingChargeText.text = "$ per Package\n$" + shippingCharge.ToString()
-            + Upgrades.moreMoneyPPCounter.ToString();
-        }
         estimatedEarningsText.text = "Estimated Earnings\n$" + estimatedEarnings.ToString();
     }
 

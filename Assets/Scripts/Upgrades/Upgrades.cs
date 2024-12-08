@@ -29,9 +29,9 @@ public class Upgrades : MonoBehaviour
     public static int addLasersCounter;
 
     // Route Upgrades
-    public static int moreMoneyPP = 1; // more $ per package
+    public static float moreMoneyPP = 1; // more $ per package
     public static int moreMoneyPPCounter;
-    public static int morePackagesDelivered;
+    public static int morePackagesDelivered = 1;
     public static int morePackagesDeliveredCounter;
 
     // Research upgrade
@@ -50,6 +50,8 @@ public class Upgrades : MonoBehaviour
     public Image morePackagesDeliveredUpgradeBar;
     public Image researchUpgradeBar;
     public Sprite[] upgradeSprites; // Drag upgrade sprites in ascending order
+    public Sprite maxButton;
+    public Image[] buyButtons; 
 
     // Costs for upgrades
     public static int handLimitCost = 5;
@@ -82,7 +84,8 @@ public class Upgrades : MonoBehaviour
         handLimitUpgradeBar.sprite = upgradeSprites[handLimitCounter];
         if (handLimitCounter == upgradeSprites.Length - 1)
         {
-            handLimitCostText.text = "Max";
+            handLimitCostText.text = "";
+            buyButtons[0].sprite = maxButton;
         } else
         {
             handLimitCostText.text = "$" + handLimitCost.ToString();
@@ -91,7 +94,8 @@ public class Upgrades : MonoBehaviour
         lessGarbageUpgradeBar.sprite = upgradeSprites[lessGarbageCounter];
         if (lessGarbageCounter == upgradeSprites.Length - 1)
         {
-            lessGarbageCostText.text = "Max";
+            lessGarbageCostText.text = "";
+            buyButtons[1].sprite = maxButton;
         }
         else
         {
@@ -101,7 +105,8 @@ public class Upgrades : MonoBehaviour
         increaseShootingSpeedUpgradeBar.sprite = upgradeSprites[increaseShootingSpeedCounter];
         if (increaseShootingSpeedCounter == upgradeSprites.Length - 1)
         {
-            increaseShootingSpeedCostText.text = "Max";
+            increaseShootingSpeedCostText.text = "";
+            buyButtons[2].sprite = maxButton;
         }
         else
         {
@@ -111,7 +116,8 @@ public class Upgrades : MonoBehaviour
         moreHealthUpgradeBar.sprite = upgradeSprites[moreHealthCounter];
         if (moreHealthCounter == upgradeSprites.Length - 1)
         {
-            moreHealthCostText.text = "Max";
+            moreHealthCostText.text = "";
+            buyButtons[3].sprite = maxButton;
         }
         else
         {
@@ -121,7 +127,8 @@ public class Upgrades : MonoBehaviour
         addLasersUpgradeBar.sprite = upgradeSprites[addLasersCounter];
         if (addLasersCounter == upgradeSprites.Length - 1)
         {
-            addLasersCostText.text = "Max";
+            addLasersCostText.text = "";
+            buyButtons[4].sprite = maxButton;
         }
         else
         {
@@ -131,7 +138,8 @@ public class Upgrades : MonoBehaviour
         moreMoneyPPUpgradeBar.sprite = upgradeSprites[moreMoneyPPCounter];
         if (moreMoneyPPCounter == upgradeSprites.Length - 1)
         {
-            moreMoneyPPCostText.text = "Max";
+            moreMoneyPPCostText.text = "";
+            buyButtons[5].sprite = maxButton;
         }
         else
         {
@@ -141,7 +149,8 @@ public class Upgrades : MonoBehaviour
         morePackagesDeliveredUpgradeBar.sprite = upgradeSprites[morePackagesDeliveredCounter];
         if (morePackagesDeliveredCounter == upgradeSprites.Length - 1)
         {
-            morePackagesDeliveredCostText.text = "Max";
+            morePackagesDeliveredCostText.text = "";
+            buyButtons[6].sprite = maxButton;
         }
         else
         {
@@ -151,7 +160,8 @@ public class Upgrades : MonoBehaviour
         researchUpgradeBar.sprite = upgradeSprites[researchCounter];
         if (researchCounter == upgradeSprites.Length - 1)
         {
-            researchCostText.text = "Max";
+            researchCostText.text = "";
+            buyButtons[7].sprite = maxButton;
         }
         else
         {
@@ -234,7 +244,7 @@ public class Upgrades : MonoBehaviour
             moreMoneyPPCost *= 2;
             moreMoneyPPCounter++;
             // MoreMoneyPP is used as a small multiplier. 
-            moreMoneyPP++;
+            moreMoneyPP += 0.2f;
             UpdateUI();
             SoundManager.Instance.PlaySound2D("Cha ching");
         }
@@ -247,6 +257,7 @@ public class Upgrades : MonoBehaviour
             Currency.money -= morePackagesDeliveredCost;
             morePackagesDeliveredCost *= 2;
             morePackagesDeliveredCounter++;
+            morePackagesDelivered++;
             // Change morepackagesdelivered value
             UpdateUI();
             SoundManager.Instance.PlaySound2D("Cha ching");
@@ -261,7 +272,7 @@ public class Upgrades : MonoBehaviour
             UpdateUI();
             SoundManager.Instance.PlaySound2D("Whoosh");
 
-            // 50/50 chance to unlock piece of planet
+            // 25% chance to unlock piece of planet
             if (Random.Range(0, 4) == 1)
             {
                 researchTries = 0;

@@ -17,12 +17,14 @@ public class Summary : MonoBehaviour
 
     private int earnings;
     private int totalprofit;
+    private int totalPackagesDelivered;
 
     // Start is called before the first frame update
     void Start()
     {
-        //MIGHT NEED TO CHANGE moreMoneyPP value. Right now it acts as a multiplier. 
-        earnings = Currency.pDelivered * PlanetSelection.shippingCharge * Upgrades.moreMoneyPP;
+        //MIGHT NEED TO CHANGE moreMoneyPP value. Right now it acts as a multiplier.
+        totalPackagesDelivered = Currency.pDelivered * Upgrades.morePackagesDelivered;
+        earnings = (int) (totalPackagesDelivered * PlanetSelection.shippingCharge);
         if (Currency.repHome == 5){
             earnings = earnings * 2;
         }
@@ -37,7 +39,9 @@ public class Summary : MonoBehaviour
             packagesSorted.text = "Packages Sorted: " + Currency.pSorted.ToString();}
 
         if (packagesDelivered != null){
-            packagesDelivered.text = "Packages Delivered: " + Currency.pDelivered.ToString();}
+            packagesDelivered.text = "Packages Delivered: " + Currency.pDelivered.ToString()
+                + "*" + Upgrades.morePackagesDelivered.ToString()
+                + "=" + totalPackagesDelivered.ToString(); }
 
         if (laborCosts != null){
             laborCosts.text = "Labor costs: $0";}
