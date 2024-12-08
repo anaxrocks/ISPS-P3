@@ -289,7 +289,10 @@ public class Player : MonoBehaviour
     private void closeBin(int i)
     {
         Currency.pMiss += 1;
-        decreaseTimer();
+        if (PlanetSelection.selectedPlanet > 0)
+        {
+            decreaseTimer();
+        }
         //5 is the index for a closed package
         bins[i-1].GetComponent<SpriteRenderer>().sprite = binClosed[i-1];
         binCountdown[i-1] = timetoReset;

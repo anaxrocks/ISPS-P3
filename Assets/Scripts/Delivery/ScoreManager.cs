@@ -54,10 +54,6 @@ public class ScoreManager : MonoBehaviour
         }
         //unpauses game
         Time.timeScale = 1f;
-
-        acceleration = 0.05f;
-        satellite_speed = 1;
-        rock_speed = 10;
     }
 
     void Start()
@@ -69,8 +65,18 @@ public class ScoreManager : MonoBehaviour
         {
             hp = Upgrades.moreHealth;
         }
+        acceleration = 0.05f;
+        satellite_speed = 1;
+        rock_speed = 10;
+        if (PlanetSelection.selectedPlanet > 0)
+        {
+            satellite_speed += 2/PlanetSelection.selectedPlanet;
+            rock_speed += PlanetSelection.selectedPlanet;
+            acceleration += PlanetSelection.selectedPlanet * 0.01f;
+        }
         UpdateUI(); // Initialize UI with default values
         activePackages = 0;
+        
     }
     void Update()
     {
