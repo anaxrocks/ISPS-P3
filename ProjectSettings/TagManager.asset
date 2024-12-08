@@ -23,6 +23,7 @@ TagManager:
   - repCowboy
   - repGarden
   - repCat
+  - extraTime
   layers:
   - Default
   - TransparentFX

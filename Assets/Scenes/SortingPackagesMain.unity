@@ -3780,10 +3780,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93027bac49c9246f980d91cf740ab58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instance: {fileID: 0}
   player: {fileID: 135223145}
-  gameTimer: 10
   timerRunning: 0
   timerText: {fileID: 2132512545}
+  spawnCountdown: 0
+  clockLife: {fileID: 5128393179737085066, guid: 2435161ee40e24eee82c04195d85c85a, type: 3}
 --- !u!4 &1101507189
 Transform:
   m_ObjectHideFlags: 0

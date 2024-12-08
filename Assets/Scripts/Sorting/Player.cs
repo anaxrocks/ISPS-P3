@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     public float timetoReset; //time to reset bin if player mis-sorted
     private float[] binCountdown = new float[4];
 
+    private float additionalTime; //time player can get to up the timer. 
+
 
 
     public ReusableFloatingPoint floatingPoint; // Assign the TextMeshPro with the script in the Inspector
@@ -60,6 +62,20 @@ public class Player : MonoBehaviour
         floatingPoint.ShowPopup(playerTransform.position, offset, "+1", Color.green);
     }
 
+    public void extendTimer()
+    {
+        Timer.extraLife(additionalTime);
+        Vector3 offset = new Vector3(0, -1.5f, 0); // Adjust the offset as needed
+        floatingPoint.ShowPopup(playerTransform.position, offset, "+5sec", Color.yellow);
+    }
+
+    public void decreaseTimer()
+    {
+        Timer.misTime();
+        Vector3 offset = new Vector3(0, 1.5f, 0); // Adjust the offset as needed
+        floatingPoint.ShowPopup(playerTransform.position, offset, "-2sec", Color.red);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +85,7 @@ public class Player : MonoBehaviour
         }
         maxStack = Upgrades.handLimit;
         containsRock = false;
+        additionalTime = 6.0f;
     }
 
     // Update is called once per frame
@@ -271,6 +288,7 @@ public class Player : MonoBehaviour
     private void closeBin(int i)
     {
         Currency.pMiss += 1;
+        decreaseTimer();
         //5 is the index for a closed package
         bins[i-1].GetComponent<SpriteRenderer>().sprite = binClosed[i-1];
         binCountdown[i-1] = timetoReset;
@@ -382,6 +400,10 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Discard")
         {
             discard = true;
+        }
+        if (other.gameObject.tag == "extraTime")
+        {
+            extendTimer();
         }
     }
     void OnTriggerExit2D(Collider2D other)

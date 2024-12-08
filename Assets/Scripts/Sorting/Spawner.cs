@@ -31,10 +31,6 @@ public class Spawner : MonoBehaviour
         {
             spawnCountdown = timetoSpawn;
             int randomPackage = Random.Range(1, packages.Length);
-            if (randomPackage >= packages.Length)
-            {
-                randomPackage = 0; // rock
-            }
             Vector3 randomSpawnPosition = new Vector3(Random.Range(-8, 8), Random.Range(5, 9), 0);
             Instantiate(packages[randomPackage], randomSpawnPosition, Quaternion.identity);
         }
