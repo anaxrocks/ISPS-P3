@@ -80,94 +80,34 @@ public class Upgrades : MonoBehaviour
     {
         moneyText.text = "$" + Currency.money.ToString();
 
-        // Update upgrade bar sprites
-        handLimitUpgradeBar.sprite = upgradeSprites[handLimitCounter];
-        if (handLimitCounter == upgradeSprites.Length - 1)
-        {
-            handLimitCostText.text = "";
-            buyButtons[0].sprite = maxButton;
-        } else
-        {
-            handLimitCostText.text = "$" + handLimitCost.ToString();
-        }
+        // Update upgrade bar sprites and costs
+        UpdateUpgradeUI(handLimitUpgradeBar, handLimitCounter, handLimitCost, handLimitCostText, buyButtons[0]);
+        UpdateUpgradeUI(lessGarbageUpgradeBar, lessGarbageCounter, lessGarbageCost, lessGarbageCostText, buyButtons[1]);
+        UpdateUpgradeUI(increaseShootingSpeedUpgradeBar, increaseShootingSpeedCounter, increaseShootingSpeedCost, increaseShootingSpeedCostText, buyButtons[2]);
+        UpdateUpgradeUI(moreHealthUpgradeBar, moreHealthCounter, moreHealthCost, moreHealthCostText, buyButtons[3]);
+        UpdateUpgradeUI(addLasersUpgradeBar, addLasersCounter, addLasersCost, addLasersCostText, buyButtons[4]);
+        UpdateUpgradeUI(moreMoneyPPUpgradeBar, moreMoneyPPCounter, moreMoneyPPCost, moreMoneyPPCostText, buyButtons[5]);
+        UpdateUpgradeUI(morePackagesDeliveredUpgradeBar, morePackagesDeliveredCounter, morePackagesDeliveredCost, morePackagesDeliveredCostText, buyButtons[6]);
+        UpdateUpgradeUI(researchUpgradeBar, researchCounter, researchCost, researchCostText, buyButtons[7]);
+    }
 
-        lessGarbageUpgradeBar.sprite = upgradeSprites[lessGarbageCounter];
-        if (lessGarbageCounter == upgradeSprites.Length - 1)
+    void UpdateUpgradeUI(Image upgradeBar, int counter, int cost, TextMeshProUGUI costText, Image buyButton)
+    {
+        upgradeBar.sprite = upgradeSprites[counter];
+
+        if (counter == upgradeSprites.Length - 1) // Max upgrade
         {
-            lessGarbageCostText.text = "";
-            buyButtons[1].sprite = maxButton;
+            costText.text = "";
+            buyButton.sprite = maxButton;
+            buyButton.GetComponent<Button>().interactable = false;
         }
         else
         {
-            lessGarbageCostText.text = "$" + lessGarbageCost.ToString();
-        }
-
-        increaseShootingSpeedUpgradeBar.sprite = upgradeSprites[increaseShootingSpeedCounter];
-        if (increaseShootingSpeedCounter == upgradeSprites.Length - 1)
-        {
-            increaseShootingSpeedCostText.text = "";
-            buyButtons[2].sprite = maxButton;
-        }
-        else
-        {
-            increaseShootingSpeedCostText.text = "$" + increaseShootingSpeedCost.ToString();
-        }
-
-        moreHealthUpgradeBar.sprite = upgradeSprites[moreHealthCounter];
-        if (moreHealthCounter == upgradeSprites.Length - 1)
-        {
-            moreHealthCostText.text = "";
-            buyButtons[3].sprite = maxButton;
-        }
-        else
-        {
-            moreHealthCostText.text = "$" + moreHealthCost.ToString();
-        }
-
-        addLasersUpgradeBar.sprite = upgradeSprites[addLasersCounter];
-        if (addLasersCounter == upgradeSprites.Length - 1)
-        {
-            addLasersCostText.text = "";
-            buyButtons[4].sprite = maxButton;
-        }
-        else
-        {
-            addLasersCostText.text = "$" + addLasersCost.ToString();
-        }
-
-        moreMoneyPPUpgradeBar.sprite = upgradeSprites[moreMoneyPPCounter];
-        if (moreMoneyPPCounter == upgradeSprites.Length - 1)
-        {
-            moreMoneyPPCostText.text = "";
-            buyButtons[5].sprite = maxButton;
-        }
-        else
-        {
-            moreMoneyPPCostText.text = "$" + moreMoneyPPCost.ToString();
-        }
-
-        morePackagesDeliveredUpgradeBar.sprite = upgradeSprites[morePackagesDeliveredCounter];
-        if (morePackagesDeliveredCounter == upgradeSprites.Length - 1)
-        {
-            morePackagesDeliveredCostText.text = "";
-            buyButtons[6].sprite = maxButton;
-        }
-        else
-        {
-            morePackagesDeliveredCostText.text = "$" + morePackagesDeliveredCost.ToString();
-        }
-
-        researchUpgradeBar.sprite = upgradeSprites[researchCounter];
-        if (researchCounter == upgradeSprites.Length - 1)
-        {
-            researchCostText.text = "";
-            buyButtons[7].sprite = maxButton;
-        }
-        else
-        {
-            researchCostText.text = "$" + researchCost.ToString();
+            costText.text = "$" + cost.ToString();
+            buyButton.GetComponent<Button>().interactable = Currency.money >= cost;
         }
     }
+
 
     public void BuyHandLimitUpgrade()
     {
