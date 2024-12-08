@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour
     {
         //extra time spawner
         spawnCountdown -= Time.deltaTime;
-        if (spawnCountdown <= 0 && Tutorial.tutorial == false)
+        if (spawnCountdown <= 0 && PlanetSelection.selectedPlanet > 0)
         {
             spawnCountdown = Random.Range(8.0f, 15.0f);
             Vector3 randomSpawnPosition = new Vector3(Random.Range(-8, 8), Random.Range(5, 9), 0);

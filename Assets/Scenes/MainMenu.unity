@@ -1751,6 +1751,9 @@ MonoBehaviour:
   - groupID: Whoosh
     clips:
     - {fileID: 8300000, guid: a5b95da8db5504263ace97ca08ea1677, type: 3}
+  - groupID: Bonus
+    clips:
+    - {fileID: 8300000, guid: e9b70629b3ae7496ca43071966ebbfda, type: 3}
 --- !u!4 &2053473098
 Transform:
   m_ObjectHideFlags: 0

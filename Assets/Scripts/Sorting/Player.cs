@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
 
     public void extendTimer()
     {
+        SoundManager.Instance.PlaySound2D("Bonus");
         Timer.extraLife(additionalTime);
         Vector3 offset = new Vector3(0, -1.5f, 0); // Adjust the offset as needed
         floatingPoint.ShowPopup(playerTransform.position, offset, "+5sec", Color.yellow);
