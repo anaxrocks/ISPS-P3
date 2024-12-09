@@ -25,6 +25,7 @@ public class PlanetSelection : MonoBehaviour
     private float estimatedEarnings;
     public GameObject planetCanvas;
 
+
     void Start()
     {
         // Disable the Start button at the beginning
@@ -40,8 +41,6 @@ public class PlanetSelection : MonoBehaviour
             buttons[j].gameObject.SetActive(true);
             repBars[j].gameObject.SetActive(true);
         }
-
-        UpdateButtonInteractivity(); // Initial check
     }
 
     void Update()
@@ -70,7 +69,7 @@ public class PlanetSelection : MonoBehaviour
                 currentSelectedButton = selectedButton;
 
                 // Enable the Start button
-                startButton.interactable = true;
+                startButton.interactable = Currency.money >= fuelCost;
             }
         }
         else if (selectedObject != startButton.gameObject) // Exclude Start button from the check
@@ -81,41 +80,19 @@ public class PlanetSelection : MonoBehaviour
                 ResetButtonValue(currentSelectedButton);
                 currentSelectedButton = null;
 
+                // packageQuotaText.text = "";
+                // fuelCostText.text = "";
+                // shippingChargeText.text = "";
+                // estimatedEarningsText.text = "";
                 planetCanvas.SetActive(false);
 
                 // Disable the Start button
                 startButton.interactable = false;
             }
         }
-
-        UpdateButtonInteractivity(); // Continuously check for changes in Currency.money
     }
 
-    private void UpdateButtonInteractivity()
-    {
-        for (int i = 0; i < buttons.Count; i++)
-        {
-            Button button = buttons[i];
-            int fuelCost = GetFuelCostForPlanet(i);
-
-            // Disable button if the player can't afford the fuel cost
-            button.interactable = Currency.money >= fuelCost;
-        }
-    }
-
-    private int GetFuelCostForPlanet(int planetIndex)
-    {
-        switch (planetIndex)
-        {
-            case 0: return 0; // Home Planet
-            case 1: return 200; // Planet 1
-            case 2: return 500; // Planet 2
-            case 3: return 10000; // Planet 3
-            case 4: return 200000; // Planet 4
-            default: return int.MaxValue; // Default case for safety
-        }
-    }
-
+    // Sets a value to the selected button
     private void SetButtonValue(Button button)
     {
         Text buttonText = button.GetComponentInChildren<Text>();
@@ -125,6 +102,7 @@ public class PlanetSelection : MonoBehaviour
         }
     }
 
+    // Resets the value of the deselected button
     private void ResetButtonValue(Button button)
     {
         Text buttonText = button.GetComponentInChildren<Text>();
@@ -140,8 +118,7 @@ public class PlanetSelection : MonoBehaviour
         if (Tutorial.tutorial == true)
         {
             packageQuota = 5;
-        }
-        else
+        } else
         {
             packageQuota = 10;
         }
@@ -193,7 +170,7 @@ public class PlanetSelection : MonoBehaviour
 
     public void SetPlanet3()
     {
-        selectedPlanet = 3;
+        selectedPlanet = 3; 
         packageQuota = 1000;
         fuelCost = 10000;
         shippingCharge = 100 * Upgrades.moreMoneyPP;
@@ -229,6 +206,7 @@ public class PlanetSelection : MonoBehaviour
 
     public void UpdateGoal()
     {
+        startButton.interactable = Currency.money >= fuelCost;
         planetCanvas.SetActive(true);
         packageQuotaText.text = "Package Quota\n" + packageQuota.ToString();
         fuelCostText.text = "Fuel Cost\n$" + fuelCost.ToString();
