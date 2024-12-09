@@ -76,6 +76,7 @@ public class ScoreManager : MonoBehaviour
         }
         UpdateUI(); // Initialize UI with default values
         activePackages = 0;
+        MusicManager.Instance.PlayMusic("delivery");
         
     }
     void Update()
