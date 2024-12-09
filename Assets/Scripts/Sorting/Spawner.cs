@@ -21,6 +21,8 @@ public class Spawner : MonoBehaviour
     {
         spawnCountdown = timetoSpawn;
         rockCountdown = timetoRock/Upgrades.lessGarbage;
+        speedupFactor = 0.95f - (0.04f * PlanetSelection.selectedPlanet);
+        speedupInterval = 10f - PlanetSelection.selectedPlanet;
     }
 
     void Update()

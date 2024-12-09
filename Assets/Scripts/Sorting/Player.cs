@@ -87,6 +87,9 @@ public class Player : MonoBehaviour
         maxStack = Upgrades.handLimit;
         containsRock = false;
         additionalTime = 6.0f;
+        speedUpInterval = 10f - PlanetSelection.selectedPlanet;
+        moveSpeed = 5f + PlanetSelection.selectedPlanet;
+        maxMoveSpeed = 10f + PlanetSelection.selectedPlanet;
     }
 
     // Update is called once per frame

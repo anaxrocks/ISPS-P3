@@ -16,6 +16,8 @@ public class Timer : MonoBehaviour
     public float spawnCountdown;
     public GameObject clockLife;
     private int hasSpedUp;
+    private float minSpawn;
+    private float maxSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,9 @@ public class Timer : MonoBehaviour
         {
             timerRunning = true;
         }
-        spawnCountdown = Random.Range(8.0f, 15.0f);
+        minSpawn = 8.0f - PlanetSelection.selectedPlanet;
+        maxSpawn = 15.0f - PlanetSelection.selectedPlanet;
+        spawnCountdown = Random.Range(minSpawn, maxSpawn);
     }
 
     void Update()
@@ -39,7 +43,7 @@ public class Timer : MonoBehaviour
         spawnCountdown -= Time.deltaTime;
         if (spawnCountdown <= 0 && PlanetSelection.selectedPlanet > 0)
         {
-            spawnCountdown = Random.Range(8.0f - PlanetSelection.selectedPlanet, 15.0f);
+            spawnCountdown = Random.Range(minSpawn, maxSpawn);
             Vector3 randomSpawnPosition = new Vector3(Random.Range(-8, 8), Random.Range(5, 9), 0);
             Instantiate(clockLife, randomSpawnPosition, Quaternion.identity);
         }
