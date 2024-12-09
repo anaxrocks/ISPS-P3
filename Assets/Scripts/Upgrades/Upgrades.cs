@@ -124,13 +124,13 @@ public class Upgrades : MonoBehaviour
 
     public void BuyLessGarbageUpgrade()
     {
-        if (Currency.money >= lessGarbageCost && lessGarbageCounter < upgradeSprites.Length - 1 && lessGarbage > 0)
+        if (Currency.money >= lessGarbageCost && lessGarbageCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= lessGarbageCost;
             lessGarbageCost *= 2;
             lessGarbageCounter++;
             lessGarbage -= 0.4f;
-            // Change lessGarbage value
+            lessGarbage = Mathf.Round(lessGarbage * 10.0f) * 0.1f;
             UpdateUI();
             SoundManager.Instance.PlaySound2D("Cha ching");
         }
@@ -169,6 +169,7 @@ public class Upgrades : MonoBehaviour
         {
             Currency.money -= addLasersCost;
             addLasersCost *= 2;
+            addLasers++;
             addLasersCounter++;
             // Change addlasers value
             UpdateUI();

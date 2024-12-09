@@ -23,6 +23,43 @@ public class PopupWindow : MonoBehaviour
 
     public void AddToQueue(string text)
     {//parameter the same type as queue
+        switch(text)
+        {
+            case "handLimit":
+                text = "Hand limit has increased to " + Upgrades.handLimit.ToString();
+                break;
+
+            case "lessGarbage":
+                text = "Garbage spawn rate has decreased to " + Upgrades.lessGarbage.ToString();
+                break;
+
+            case "shootingSpeed":
+                text = "Shooting speed increased to " + Upgrades.increaseShootingSpeed.ToString();
+                break;
+
+            case "moreHealth":
+                text = "Health increased to " + Upgrades.moreHealth.ToString();
+                break;
+
+            case "lasers":
+                if (Upgrades.addLasers == 1)
+                {
+                    text = "Lasers added to your ship!";
+                }
+                else
+                {
+                    text = "Laser shooting speed increased to " + Upgrades.addLasers.ToString();
+                }
+                break;
+
+            case "moneyPerPackage":
+                text = "Profit multiplier increased to " + Upgrades.moreMoneyPP.ToString();
+                break;
+
+            case "morePackagesDelivered":
+                text = "Delivered packages multiplier increased to " + Upgrades.morePackagesDelivered.ToString();
+                break;
+        }
         popupQueue.Enqueue(text);
         if (queueChecker == null)
             queueChecker = StartCoroutine(CheckQueue());

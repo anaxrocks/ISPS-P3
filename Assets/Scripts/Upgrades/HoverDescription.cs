@@ -14,8 +14,8 @@ public class HoverDescription : MonoBehaviour, IPointerEnterHandler, IPointerExi
         if (descriptionText.gameObject.activeSelf)
         { 
             Vector3 mousePosition = Input.mousePosition;
-            descriptionText.transform.position = mousePosition + new Vector3(100, 0, 0); // Offset for visibility
-            tooltipPanel.transform.position = mousePosition + new Vector3(100, 0, 0);
+            descriptionText.transform.position = mousePosition + new Vector3(175, 0, 0); // Offset for visibility
+            tooltipPanel.transform.position = mousePosition + new Vector3(175, 0, 0);
         }
     }
 
