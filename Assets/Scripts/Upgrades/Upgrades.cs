@@ -64,11 +64,11 @@ public class Upgrades : MonoBehaviour
     public TextMeshProUGUI moreHealthCostText;
     public static int addLasersCost = 5;
     public TextMeshProUGUI addLasersCostText;
-    public static int moreMoneyPPCost = 5;
+    public static int moreMoneyPPCost = 10;
     public TextMeshProUGUI moreMoneyPPCostText;
-    public static int morePackagesDeliveredCost = 5;
+    public static int morePackagesDeliveredCost = 10;
     public TextMeshProUGUI morePackagesDeliveredCostText;
-    public static int researchCost = 5;
+    public static int researchCost = 10;
     public TextMeshProUGUI researchCostText;
 
     void Start()
@@ -114,7 +114,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= handLimitCost && handLimitCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= handLimitCost;
-            handLimitCost *= 2;
+            handLimitCost *= 5;
             handLimitCounter++;
             handLimit++;
             UpdateUI();
@@ -127,7 +127,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= lessGarbageCost && lessGarbageCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= lessGarbageCost;
-            lessGarbageCost *= 2;
+            lessGarbageCost *= 5;
             lessGarbageCounter++;
             lessGarbage -= 0.4f;
             lessGarbage = Mathf.Round(lessGarbage * 10.0f) * 0.1f;
@@ -141,7 +141,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= increaseShootingSpeedCost && increaseShootingSpeedCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= increaseShootingSpeedCost;
-            increaseShootingSpeedCost *= 2;
+            increaseShootingSpeedCost *= 5;
             increaseShootingSpeedCounter++;
             increaseShootingSpeed++;
             UpdateUI();
@@ -154,7 +154,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= moreHealthCost && moreHealthCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= moreHealthCost;
-            moreHealthCost *= 2;
+            moreHealthCost *= 5;
             moreHealthCounter++;
             // Change moreHealth value
             moreHealth++;
@@ -168,7 +168,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= addLasersCost && addLasersCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= addLasersCost;
-            addLasersCost *= 2;
+            addLasersCost *= 5;
             addLasers++;
             addLasersCounter++;
             // Change addlasers value
@@ -182,7 +182,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= moreMoneyPPCost && moreMoneyPPCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= moreMoneyPPCost;
-            moreMoneyPPCost *= 2;
+            moreMoneyPPCost *= 5;
             moreMoneyPPCounter++;
             // MoreMoneyPP is used as a small multiplier. 
             moreMoneyPP += 0.2f;
@@ -196,7 +196,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= morePackagesDeliveredCost && morePackagesDeliveredCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= morePackagesDeliveredCost;
-            morePackagesDeliveredCost *= 2;
+            morePackagesDeliveredCost *= 5;
             morePackagesDeliveredCounter++;
             morePackagesDelivered++;
             // Change morepackagesdelivered value
@@ -218,7 +218,7 @@ public class Upgrades : MonoBehaviour
             {
                 researchTries = 0;
                 researchCounter++;
-                researchCost *= 2;
+                researchCost *= 5;
                 print("planet unlocked");
                 // change research value
                 UpdateUI();
@@ -241,7 +241,7 @@ public class Upgrades : MonoBehaviour
             {
                 researchTries = 0;
                 researchCounter++;
-                researchCost *= 2;
+                researchCost *= 5;
                 print("planet unlocked");
                 // change research value
                 UpdateUI();
