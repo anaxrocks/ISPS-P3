@@ -72,7 +72,6 @@ public class ScoreManager : MonoBehaviour
         {
             satellite_speed += 2/PlanetSelection.selectedPlanet;
             rock_speed += PlanetSelection.selectedPlanet;
-            acceleration += PlanetSelection.selectedPlanet * 0.01f;
         }
         UpdateUI(); // Initialize UI with default values
         activePackages = 0;
