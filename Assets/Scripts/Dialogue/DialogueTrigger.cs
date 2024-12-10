@@ -53,7 +53,7 @@ public class DialogueTrigger : MonoBehaviour
             TriggerDialogue();
         }
 
-        else if (DialogueManager.Instance.isDialogueActive && hasPlayed && (Input.GetMouseButtonDown(0) || Input.GetKeyDown("space"))) {
+        else if (DialogueManager.Instance.isDialogueActive && hasPlayed && Input.GetMouseButtonDown(0)) {
             DialogueManager.Instance.DisplayNextDialogueLine();
         }
 
