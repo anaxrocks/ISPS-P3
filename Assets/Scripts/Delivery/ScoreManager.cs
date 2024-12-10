@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
         rock_speed = 10;
         if (PlanetSelection.selectedPlanet > 0)
         {
-            satellite_speed += 2/PlanetSelection.selectedPlanet;
+            satellite_speed += PlanetSelection.selectedPlanet;
             rock_speed += PlanetSelection.selectedPlanet;
         }
         UpdateUI(); // Initialize UI with default values

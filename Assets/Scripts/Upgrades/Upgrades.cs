@@ -182,7 +182,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= moreMoneyPPCost && moreMoneyPPCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= moreMoneyPPCost;
-            moreMoneyPPCost *= 5;
+            moreMoneyPPCost *= 10;
             moreMoneyPPCounter++;
             // MoreMoneyPP is used as a small multiplier. 
             moreMoneyPP += 0.2f;
@@ -196,7 +196,7 @@ public class Upgrades : MonoBehaviour
         if (Currency.money >= morePackagesDeliveredCost && morePackagesDeliveredCounter < upgradeSprites.Length - 1)
         {
             Currency.money -= morePackagesDeliveredCost;
-            morePackagesDeliveredCost *= 5;
+            morePackagesDeliveredCost *= 10;
             morePackagesDeliveredCounter++;
             morePackagesDelivered++;
             // Change morepackagesdelivered value
@@ -218,7 +218,7 @@ public class Upgrades : MonoBehaviour
             {
                 researchTries = 0;
                 researchCounter++;
-                researchCost *= 5;
+                researchCost *= 10;
                 print("planet unlocked");
                 // change research value
                 UpdateUI();
@@ -241,7 +241,7 @@ public class Upgrades : MonoBehaviour
             {
                 researchTries = 0;
                 researchCounter++;
-                researchCost *= 5;
+                researchCost *= 10;
                 print("planet unlocked");
                 // change research value
                 UpdateUI();

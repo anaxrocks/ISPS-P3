@@ -135,7 +135,7 @@ public class PlanetSelection : MonoBehaviour
     public void SetPlanet1()
     {
         selectedPlanet = 1;
-        packageQuota = 100;
+        packageQuota = 50;
         fuelCost = 200;
         shippingCharge = 5 * Upgrades.moreMoneyPP;
         if (Currency.rep1 == 5)
@@ -153,8 +153,8 @@ public class PlanetSelection : MonoBehaviour
     public void SetPlanet2()
     {
         selectedPlanet = 2;
-        packageQuota = 500;
-        fuelCost = 500;
+        packageQuota = 100;
+        fuelCost = 2000;
         shippingCharge = 50 * Upgrades.moreMoneyPP;
         if (Currency.rep2 == 5)
         {
@@ -171,7 +171,7 @@ public class PlanetSelection : MonoBehaviour
     public void SetPlanet3()
     {
         selectedPlanet = 3; 
-        packageQuota = 1000;
+        packageQuota = 300;
         fuelCost = 10000;
         shippingCharge = 100 * Upgrades.moreMoneyPP;
         if (Currency.rep3 == 5)
@@ -189,7 +189,7 @@ public class PlanetSelection : MonoBehaviour
     public void SetPlanet4()
     {
         selectedPlanet = 4;
-        packageQuota = 5000;
+        packageQuota = 1000;
         fuelCost = 200000;
         shippingCharge = 500 * Upgrades.moreMoneyPP;
         if (Currency.rep4 == 5)
