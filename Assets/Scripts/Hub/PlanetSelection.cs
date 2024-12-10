@@ -25,7 +25,6 @@ public class PlanetSelection : MonoBehaviour
     private float estimatedEarnings;
     public GameObject planetCanvas;
 
-
     void Start()
     {
         // Disable the Start button at the beginning
@@ -136,7 +135,7 @@ public class PlanetSelection : MonoBehaviour
     {
         selectedPlanet = 1;
         packageQuota = 50;
-        fuelCost = 200;
+        fuelCost = 150;
         shippingCharge = 5 * Upgrades.moreMoneyPP;
         if (Currency.rep1 == 5)
         {
@@ -206,6 +205,8 @@ public class PlanetSelection : MonoBehaviour
 
     public void UpdateGoal()
     {
+        estimatedEarnings = Mathf.Round(estimatedEarnings * 10.0f) * 0.1f;
+        shippingCharge = Mathf.Round(shippingCharge * 10.0f) * 0.1f;
         startButton.interactable = Currency.money >= fuelCost;
         planetCanvas.SetActive(true);
         packageQuotaText.text = "Package Quota\n" + packageQuota.ToString();

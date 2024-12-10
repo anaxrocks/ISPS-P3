@@ -52,7 +52,7 @@ public class Summary : MonoBehaviour
         if (profit != null){
             profit.text = "Profit: $" + totalprofit.ToString();}
 
-        if (Currency.pDelivered >= PlanetSelection.packageQuota){
+        if (totalPackagesDelivered >= PlanetSelection.packageQuota){
             feedbackMsg.text = "Well done! You've completed your quota!";
             feedbackMsg.color = Color.green;
             if (PlanetSelection.selectedPlanet == 0 && Currency.repHome < 5){
@@ -77,7 +77,7 @@ public class Summary : MonoBehaviour
             }
         }
 
-        if (Currency.pDelivered < PlanetSelection.packageQuota){
+        if (totalPackagesDelivered < PlanetSelection.packageQuota){
             feedbackMsg.text = "You didn't make the quota this time.. Try again!";
             feedbackMsg.color = Color.red;
             if (PlanetSelection.selectedPlanet == 0 && Currency.repHome > 3){
