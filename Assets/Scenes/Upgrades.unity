@@ -5742,6 +5742,16 @@ MonoBehaviour:
     - character:
         name: CINDER
         icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: On this page, scroll to see all the upgrades you can buy to improve your
+        sorting, delivery, and other aspects of your process.
+    - character:
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
+      line: Conduct research to look for new planets, which will allow you to expand
+        your business.
+    - character:
+        name: CINDER
+        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
       line: "Well, that\u2019s about it! Oh - one other thing - watch out for your
         reputation, which can be harmed if you don\u2019t meet a planet\u2019s package
         quota. "

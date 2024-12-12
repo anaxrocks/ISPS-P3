@@ -1436,16 +1436,6 @@ MonoBehaviour:
         icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
       line: "HOHO! CONGRATULATIONS! That\u2019s five packages delivered. Now, you
         can see a summary of your work. "
-    - character:
-        name: CINDER
-        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
-      line: "On the next page, you\u2019ll see upgrades you can buy that will improve
-        your sorting, delivery, and other aspects of your process. "
-    - character:
-        name: CINDER
-        icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
-      line: Conduct research to look for new planets, which will allow you to expand
-        your business.
   isAutomatic: 0
   isTutorial: 1
 --- !u!4 &561473191
