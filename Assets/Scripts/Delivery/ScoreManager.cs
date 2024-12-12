@@ -16,6 +16,9 @@ public class ScoreManager : MonoBehaviour
     public GameObject gameOverCanvas; // Game Over panel to display at the end
 
     public Text gameOverScoreText;   // Reference to the ScoreText on Game Over Screen
+    public Text bestScoreText;
+
+    public static int bestDeliveryScore;
 
 
     // Game stats
@@ -172,6 +175,18 @@ public class ScoreManager : MonoBehaviour
             if (gameOverScoreText != null)
             {
                 gameOverScoreText.text = "Score: " + score;
+
+                if (Tutorial.tutorial == true)
+                {
+                    bestDeliveryScore = 5;
+                }
+                else { 
+                    if (score > bestDeliveryScore)
+                    {
+                        bestDeliveryScore = score;
+                    }
+                    bestScoreText.text = "Best Score: " + bestDeliveryScore;
+                }
             }
         }
 

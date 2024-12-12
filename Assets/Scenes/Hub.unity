@@ -4412,7 +4412,7 @@ MonoBehaviour:
     - character:
         name: CINDER
         icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}
-      line: The fuel costs tell you much cash all that transport will take.
+      line: The fuel costs tell you how much cash all that transport will take.
     - character:
         name: CINDER
         icon: {fileID: 21300000, guid: d693cc710513e445a80b2f78431694ca, type: 3}

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float speedUpInterval = 10f; // Time interval to increase speed
     private float speedUpTimer; // Timer to track speed-up intervals
     private float horizontalInput;
+    public static int bestSortingScore;
 
     private Queue packageStack = new Queue();
     public Transform[] stackSlots; //visual stack above player
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     public Sprite[] binClosed; //list of bin closed sprites
     public Transform[] bins; //list of bins. Bins are 1-indexed
     public TextMeshProUGUI scoreText; //PSorted
+    public TextMeshProUGUI bestScoreText; // high score
     private bool containsRock;
 
     //for player movement
@@ -50,8 +52,6 @@ public class Player : MonoBehaviour
     private float[] binCountdown = new float[4];
 
     private float additionalTime; //time player can get to up the timer. 
-
-
 
     public ReusableFloatingPoint floatingPoint; // Assign the TextMeshPro with the script in the Inspector
     public Transform playerTransform;          // Assign the player GameObject's Transform in the Inspector
@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
             }
         }
         Vector3 clampedPosition = transform.position;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -7.8f, 7.8f);
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -8f, 8f);
         transform.position = clampedPosition;
 
         // Speed-Up Timer
@@ -257,10 +257,16 @@ public class Player : MonoBehaviour
             {
                 showSummary();
             }
+            bestSortingScore = 5;
         }
         else
         {
             scoreText.text = "Score: " + Currency.pSorted.ToString();
+            if (Currency.pSorted > bestSortingScore)
+            {
+                bestSortingScore = Currency.pSorted;
+            }
+            bestScoreText.text = "Best Score: " + bestSortingScore.ToString();
         }
     }
 
