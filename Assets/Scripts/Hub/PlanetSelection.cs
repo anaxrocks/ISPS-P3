@@ -26,7 +26,7 @@ public class PlanetSelection : MonoBehaviour
     public GameObject planetCanvas;
 
     void Start()
-    {
+    {       
         // Disable the Start button at the beginning
         startButton.interactable = false;
 
@@ -210,6 +210,16 @@ public class PlanetSelection : MonoBehaviour
         startButton.interactable = Currency.money >= fuelCost;
         planetCanvas.SetActive(true);
         packageQuotaText.text = "Package Quota\n" + packageQuota.ToString();
+
+        if (Currency.money >= fuelCost)
+        {
+            fuelCostText.color = Color.green;
+        }
+        else
+        {
+            fuelCostText.color = Color.red;
+        }
+
         fuelCostText.text = "Fuel Cost\n$" + fuelCost.ToString();
         shippingChargeText.text = "$ per Package\n$" + shippingCharge.ToString();
         estimatedEarningsText.text = "Estimated Earnings\n$" + estimatedEarnings.ToString();
